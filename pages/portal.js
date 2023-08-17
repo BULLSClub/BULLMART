@@ -6,28 +6,29 @@ import NFTCollection from '../engine/NFT.json';
 import NFT from '../engine/NFT.json';
 import { useRouter } from 'next/router'
 import { CowsNFT, BearBSCNFT, BulBSCNFT, BullsNFT, BearNFT, PolarBearNFT, YellowCowsNFT } from '../engine/configuration';
-import { polyChain } from '../engine/chainchange';
+import { polyTest, ethTest, bscTest, polyChain } from '../engine/chainchange';
 import { Card, Button, Input, Col, Row, Spacer, Container, Text, Grid } from '@nextui-org/react';
 import axios from 'axios';
 import 'sf-font';
 import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
-
-import {  marketplaceAddress,bsctmarket } from '../engine/configuration';
+import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
+import { hhnft, hhresell, hhnftcol, hhrpc,cryptoBearNFT,CryptoCowsClub07,marketplaceAddress,bsctmarket } from '../engine/configuration';
 import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
-
-
 export default function Sell() {
-  const options = [
-    { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-  ];
-
-
-
+  
+    
+    const options = [
+      { value: "-", label: "choose", icon: "arrow.svg" },
+      { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
+     
+  
+      
+    ];
   const { Option } = components;
 
   const [user, getUser] = useState([])
@@ -66,13 +67,14 @@ export default function Sell() {
       headers: {accept: 'application/json', 'X-API-KEY': 'bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7'}
     };
     
-    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon&wallet_addresses='+owner+'&limit=50', options);
+    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon,bsc&wallet_addresses='+owner+'&limit=50', options);
     console.log(rest.data.nfts);
     const simpleHashNFTs = rest.data.nfts.map((item) => {
       console.log(item);
       return{
                  id: item.token_id,
                  image: item.extra_metadata.image_original_url ? item.extra_metadata.image_original_url.replace("ipfs://","https://ipfs.io/ipfs/") : null,
+                 
                  address:item.contract_address,
                  expiredate: "",
                  name: item.collection.name+" "+item.token_id,
@@ -98,18 +100,22 @@ export default function Sell() {
     setProds(simpleHashNFTs);
    }
    const setMarketAdd = async() => {
+    
       var bsct = "0x38";
       var poly = "0x89";
       const connected = await detectEthereumProvider();
+    
       if (connected.chainId == bsct) {
         setMarketplaceadd(bsctmarket);
       }
       if(connected.chainId == poly)
       {
         setMarketplaceadd(marketplaceAddress); 
+
       }
    }
     useEffect(() => {
+
 
       getChain();
       setMarketAdd();
@@ -126,7 +132,49 @@ export default function Sell() {
       {
         router.push("/wallet")
 
-      }  
+      }
+
+  //     const getd =async()=>{
+      
+  //     // const ownersNFT = NFTS.filter(o => o.owner.toLowerCase() === ownerAddr.toLowerCase())
+  //     console.log(ownersNFT);
+  //     let s=[];
+  //     const k=ownersNFT.map(async(item) => {
+  //      let r = await getMetadata(item.baseURI);
+      
+  //     return(
+  //      {
+  //          id: item.tokenID,
+  //          image: r.image.replace("ipfs://","https://ipfs.io/ipfs/") ,
+  //          wishlist: "0.352",
+  //          address:item.addr,
+  //          expiredate: "",
+  //          name: r.name,
+  //          stock: "1",
+  //          price: 0.1,
+  //          category: "Art",
+  //          tags: "Polygone | For Sell | For Collect | Trending |  Trending_Arts",
+  //          desc: r.description,
+  //          owners: [
+  //              {
+  //                  id:"1",
+  //                  name:"",
+  //                  image:"assets/images/seller/collector-1.png",
+  //                  verified: false,
+  //                  prfileLink:"/"
+  //              }
+              
+  //          ]
+          
+  //      }
+
+  //     )
+  //  })
+  //  const x = await Promise.all(k)
+  //  setProds(x);
+
+  // }
+  // getd();
   setLoading(true);
      }, [loading])
      console.log(prod)
@@ -134,12 +182,23 @@ export default function Sell() {
     const router = useRouter()
 
     async function setRpc(){
-     
+      var hh = "0x7a69";
+      var goe = "0x5";
+      var mm = "0x13881";
       var bsct = "0x38";
       var poly = "0x89";
       const connected = await detectEthereumProvider();
       console.log(connected.chainId);
-       if (connected.chainId == bsct) {
+      if (connected.chainId == hh) {
+        var mainnet = hhrpc
+      }
+      else if (connected.chainId == goe) {
+        var mainnet = goerpc
+      }
+      else if (connected.chainId == mm) {
+        var mainnet = mmrpc
+      }
+      else if (connected.chainId == bsct) {
         var mainnet = bsctrpc
       }
       if(connected.chainId == poly)
@@ -154,10 +213,18 @@ export default function Sell() {
     }
 
     async function setNftCol(){
+      var hh = "0x7a69";
+      var goe = "0x5";
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-      if (connected.chainId == mm) {
+      if (connected.chainId == hh) {
+        var nftcol = hhnftcol
+      }
+      else if (connected.chainId == goe) {
+        var nftcol = goenftcol
+      }
+      else if (connected.chainId == mm) {
         var nftcol = mmnftcol
       }
       else if (connected.chainId == bsct) {
@@ -169,12 +236,23 @@ export default function Sell() {
     }
 
     async function setNftCustom(){
-     
+      var hh = "0x7a69";
+      var goe = "0x5";
+      var mm = "0x13881";
       var bsct = "0x38";
       var polyChain = 137;
       const connected = await detectEthereumProvider();
       console.log(connected);
-       if (connected.chainId == bsct) {
+      if (connected.chainId == hh) {
+        var nft = hhnft
+      }
+      else if (connected.chainId == goe) {
+        var nft = goenft
+      }
+      else if (connected.chainId == mm) {
+        var nft = mmnft
+      }
+      else if (connected.chainId == bsct) {
         var nft = [BearBSCNFT, BulBSCNFT];
       }
       if(connected.chainId == polyChain)
@@ -187,11 +265,18 @@ export default function Sell() {
     }
 
     async function setNftResell(){
-
+      var hh = "0x7a69";
+      var goe = "0x5";
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-     if (connected.chainId == mm) {
+      if (connected.chainId == hh) {
+        var nftresell = hhresell
+      }
+      else if (connected.chainId == goe) {
+        var nftresell = goeresell
+      }
+      else if (connected.chainId == mm) {
         var nftresell = mmresell
       }
       else if (connected.chainId == bsct) {
@@ -204,11 +289,18 @@ export default function Sell() {
       resolve => setTimeout(resolve, ms)
     );
     async function getChain(){
-     
+      var hh = "0x7a69";
+      var goe = "0x5";
       var mm = "0x13881";
       var bsct = "0x61";
       const connected = await detectEthereumProvider();
-      if (connected.chainId == mm) {
+      if (connected.chainId == hh) {
+        var chainname = "HardHat"
+      }
+      else if (connected.chainId == goe) {
+        var chainname = "Goerli Testnet"
+      }
+      else if (connected.chainId == mm) {
         var chainname = "Mumbai Testnet"
       }
       else if (connected.chainId == bsct) {
@@ -269,14 +361,18 @@ export default function Sell() {
                 desc,
                 address:nftcustom[t]
               }])
+             
+
+
         }
+      
+
       }
       console.log(itemArray);
+
+    
+
     }
-
-
-
-
 
     async function SellNFT(address,tokenID,price,Token) {
       console.log(rpc);
@@ -292,7 +388,7 @@ console.log(pricing)
 
       console.log(address,tokenID.toString(),"0x"+pricing,Token == "0" ? true: false,Token == "0" ? "0x0000000000000000000000000000000000000000":Token)
 const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
- 
+ //set up your Ethereum transaction
   const transactionParameters = {
       to: marketplaceadd, // Required except during contract publications.
       from: window.ethereum.selectedAddress, // must match user's active address.
@@ -300,7 +396,7 @@ const nftContract = await new web3.eth.Contract(BullscMarket, marketplaceadd);
   //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')), 
       // maxPriorityFeePerGas: web3.utils.toHex(gazfees.maxPriorityFeePerGas.toString()),
       // maxFeePerGas: web3.utils.toHex(gazfees.maxFeePerGas.toString()),
-      gas: ethers.BigNumber.from(300000).toHexString(),
+      gas: ethers.BigNumber.from(500000).toHexString(),
       value:val,
       'data': nftContract.methods.createVaultItem(address,tokenID.toString(),"0x"+pricing,Token == "0" ? true: false,Token == "0" ? "0x0000000000000000000000000000000000000000":Token).encodeABI() //make call to NFT smart contract 
   //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
@@ -422,6 +518,8 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         setNfts(itemArray)
         setLoadingState('loaded');
       }
+
+
       async function getCreatedNFTs() {
         var address = nftcustom
         var network = rpc
@@ -471,6 +569,7 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         getCreated(itemArray)
         setLoadingState('loaded');
       }
+
       async function refreshNFTs(){
         setRpc();
         getWalletNFTs();
@@ -482,6 +581,9 @@ const nftContract = await new web3.eth.Contract(NFT, address);
         setRpc();
         getChain();
       }
+
+
+
       if (loadingState  && !prod.length) 
       return (
         <Container >
@@ -510,21 +612,23 @@ return (
           <Card css={{ p: "$9", backgroundColor: "$blue200" }}>
           <Row>
           <Text h4 css={{marginRight:'$3'}}>
-              Switch Blockchain
+              Select Blockchain
             </Text>
-          <Button size="sm" color="white" onPress={polyChain} css={{ marginRight: "$2" }}>
+          <Button size="sm" onPress={polyChain} css={{ marginRight: "$2" }}>
                 <img src="polygonwhite.png" width={"100px"} />
               </Button>
               
               </Row>
               <Card css={{ p: "$4", marginTop:'$3'}}>
             <Text h3>
-              Wallet:
+              Wallet
               <Text h5 css={{ color: "#39FF14" }}>
                 {user}
               </Text>
             </Text>
             <Text h6>Must Approve 1st, sign the transaction and wait for network to process</Text>
+            <Text h6>it could take few moments to process a transaction on the blockchain</Text>
+            
             <Text h6>Add your price,Then list for sale</Text>
             <Text h6>Listing Fee :0.025 MATIC</Text>
             <Row>
@@ -559,23 +663,32 @@ return (
                     <Card
                       isHoverable
                       key={i}
-                      css={{ mw: "200px", marginRight: "$1" }}
+                      css={{ mw: "250px", marginRight: "$1" }}
                       variant="bordered"
                     >
                       <Card.Image src={nft.image} />
                       <Card.Body  key={i}>
+                        <Col>
+                        <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
+                        >
+                          Approve to sell
+                        </Button>
                         <h3
                           style={{
                             color: "#9D00FF",
                             fontFamily: "SF Pro Display",
                           }}
                         >
-                          Owned by You
+                          
                         </h3>
                         <Text h5>
                           {nft.name} Token-{nft.id}
                         </Text>
-                       
+                      
                         <Input
                           size="sm"
                           css={{
@@ -600,11 +713,25 @@ return (
                           }
                           }
                         />
+
+
+<Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
+                        >
+
+                          Relist for Sale
+                        </Button>
+
+<Spacer />
+
                          <Select
-                         styles={{zIndex:10000}}
+                         styles={{zIndex:1001}}
         defaultValue={options[0]}
-       
-        
+        options={options}
+        components={{ Option: IconOption }}
         onChange={(e) => {
           let s = resaleToken
           s[i] = e.value
@@ -612,28 +739,13 @@ return (
         }
         }
       />
-      <Row>
-      <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
-                        >
-                          Approve
-                        </Button>
-                        <Spacer>
+       <Spacer>
                           </Spacer>
-                          </Row>
-                        <Spacer />
-                        <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-
-                          List for Sale
-                        </Button>
+                          </Col>
+                          <Col>
+      <Spacer>
+                          </Spacer>
+                        </Col>
                       </Card.Body>
                     </Card>
                   </a>

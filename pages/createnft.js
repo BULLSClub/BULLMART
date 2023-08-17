@@ -50,7 +50,7 @@ export const createToken = async (baseURI) => {
     //   Number(gasPrice.maxPriorityFeePerGas) * 25
     // ),
     // maxFeePerGas: null,
-    gas: ethers.BigNumber.from(600000).toHexString(),
+    gas: ethers.BigNumber.from(500000).toHexString(),
     data: nftContract.methods.createToken(baseURI).encodeABI(), //make call to NFT smart contract
     value: val
     // 'data': nftContract.methods.transferFrom(amount).encodeABI()
@@ -144,7 +144,7 @@ const CreateNft = () => {
       } catch (error) {
         console.log(error);
       }
-      alert("NFT proccesing !");
+      alert ("NFT proccesing 🐮! be patient");
       router.push("portal");
     } else {
       // Handle error for exceeding file size limit

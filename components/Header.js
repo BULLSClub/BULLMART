@@ -270,6 +270,24 @@ const Header = () => {
                         </a>
                       </a>
                     </li>
+
+
+                    <li>
+                      <a
+                        href="https://airdrop.bullsclub.space"
+                        target="blank"
+                      >
+                        <a
+                          className={
+                            router.pathname == ""
+                              ? "drop-down-item active"
+                              : "drop-down-item"
+                          }
+                        >
+                          Airdrop
+                        </a>
+                      </a>
+                    </li>
                     <li>
                       <Link href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/" target="blank">
                         BULLSCLUB

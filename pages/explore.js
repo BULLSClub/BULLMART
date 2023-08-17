@@ -252,12 +252,7 @@ const getMetadata = async(baseURI) => {
                                     <div id="collapseOne" className="accordion-collapse collapse show"
                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="Ethereum" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
-                                                <label className="form-check-label">
-                                                    Ethereum
-                                                </label>
-                                            </div>
+                                            
                                             <div className="form-check">
                                             <input className="form-check-input" type="checkbox" value="BSC" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
 
@@ -269,7 +264,7 @@ const getMetadata = async(baseURI) => {
                                             <input className="form-check-input" type="checkbox" value="Polygone" id="ethereum" onChange={(event) => productSearch(event.target.value)} />
 
                                                 <label className="form-check-label">
-                                                    Polygone
+                                                    Polygon
                                                 </label>
                                             </div>
                                            

@@ -3,7 +3,6 @@ import Router from "next/router";
 import { useRouter } from "next/router";
 import CollectionSingle from "../components/common/Collection";
 import copy from "copy-to-clipboard";
-
 import PopularList from "../data/Collection/Popular.json";
 import ProductSingle from "../components/common/ProductSingle";
 import FollowerSingle from "../components/common/Collector";

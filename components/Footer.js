@@ -248,6 +248,16 @@ const Footer = () => {
                           Support
                         </a>
                       </li>
+
+                      <li>
+                        <a
+                          href="https://airdrop.bullsclub.space"
+                           
+                          className="footer-link"
+                        >
+                          Airdrop
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>
