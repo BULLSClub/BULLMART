@@ -1,22 +1,34 @@
+import React, { useState } from "react";
 import UAuth from "@uauth/js";
+import CustomAlert from "../components/common/CustomAlert"; 
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 function LoginUD() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const uauth = new UAuth({
-    clientID: "db9bc76f-a465-483e-9022-de0bd19ffe95",
-    redirectUri: "http://localhost:3000",
-    scope: "openid wallet email profile:optional social:optional"
-  });
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const router = useRouter();
+
   const login = () => {
+    const uauth = new UAuth({
+      clientID: "db9bc76f-a465-483e-9022-de0bd19ffe95",
+      redirectUri: "http://localhost:3000",
+      scope: "openid wallet email profile:optional social:optional",
+    });
+
     uauth
       .loginWithPopup()
       .then((authorization) => {
         console.log(authorization);
-        alert("Signed in successfully");
         setIsLoggedIn(true);
         localStorage.setItem("isLoggedIn", "true");
+
+        // Show a custom alert
+        setAlertMessage("Signed in successfully");
+        setShowAlert(true);
+
+        // Redirect to homepage after successful login
+        router.push("/");
       })
       .catch((error) => {
         if (error.name === "PopupClosedError") {
@@ -26,27 +38,10 @@ function LoginUD() {
         }
       });
   };
-  const logout = () => {
-    uauth.logout();
-    setIsLoggedIn(false);
-    alert("logged out successfully");
-    localStorage.setItem("isLoggedIn", "false");
-    router.push("/");
+
+  const closeAlert = () => {
+    setShowAlert(false);
   };
-
-  useEffect(() => {
-    const storedLoginStatus = localStorage.getItem("isLoggedIn");
-    if (
-      window.ethereum &&
-      window.ethereum?.selectedAddress &&
-      storedLoginStatus === "true"
-    ) {
-      setIsLoggedIn(true);
-      router.push("/");
-    }
-  }, []);
-
-  const router = useRouter();
   return (
     <div id="Loginwithud">
       {!isLoggedIn && (
@@ -58,14 +53,10 @@ function LoginUD() {
           Sign in
         </button>
       )}
-      {isLoggedIn && (
-        <button
-          className="default-btn small-btn move-right m-2"
-          onClick={logout}
-          style={{ width: "100px", height: "50px" }}
-        >
-          Log out
-        </button>
+
+      {/* Render the custom alert if showAlert is true */}
+      {showAlert && (
+        <CustomAlert message={alertMessage} onClose={closeAlert} />
       )}
     </div>
   );

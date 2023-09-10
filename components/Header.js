@@ -11,8 +11,12 @@ import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
 import NFTS from "../engine/NFTS.json";
 import UDdis from "./UDdisconect";
 import Image from "next/image";
+import initializefirebaseClint from "../lib/initFirebase"
+
 
 const Header = () => {
+
+  const { db, auth } =initializefirebaseClint
   const [wallet, setWallet] = useState("");
   console.log("NFT", NFTS);
 
@@ -149,12 +153,14 @@ const Header = () => {
                     </li>
                     <li>
                       <Link
-                        href="mailto:support@bullsclub.space"
+                        href="https://bazzar.bullsclub.space"
                         target="blank"
                       >
-                        {" "}
-                        Support
+                        BAZZAR
                       </Link>
+                    </li>
+                    <li>
+                     
                     </li>
                     <li>
                       <Link
@@ -172,6 +178,13 @@ const Header = () => {
                         BULLSCLUB
                       </Link>
                     </li>
+                    <Link
+                        href="mailto:support@bullsclub.space"
+                        target="blank"
+                      >
+                        {" "}
+                        Support
+                      </Link>
                   </ul>
                 </li>
               </ul>

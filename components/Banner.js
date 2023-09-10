@@ -15,9 +15,10 @@ const Banner = () => {
                             <div className="banner-content text-center">          
                             <h2>Discover, Collect
                                     And Sell Extraordinary NFTs </h2>
-                                <h4>NFT Marketplace </h4>
-                                <h4>Connect to Network First</h4>
+                                <h4>BULLMART NFT Marketplace </h4>
+                                <h4>Choose Network First ↗️</h4>
                                 <h4>Create and Sell NFTs on Polygon chain</h4>
+                                <h4>Stay Tuned for Additional Chains in the Pipeline</h4>
                                 <p></p>
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
                                     <Link href="/wallet" className="default-btn move-top">

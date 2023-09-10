@@ -7,6 +7,7 @@ import SellCard from '../components/SellCard';
 import Web3Domain from '../components/Web3Domain';
 import LiveAuction from '../components/LiveAuction';
 
+
 const isMetaMaskInstalled = () =>{
   if(ethereum){
       return true;
@@ -22,10 +23,10 @@ const Home = () => {
     <div>
       <Banner />
       <Category />
+      <LiveAuction /> 
       <SellCard /> 
       <Web3Domain />
-      <LiveAuction />  
-       <PopularCollection /> 
+      <PopularCollection /> 
     </div>
   )
 }

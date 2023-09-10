@@ -5,9 +5,23 @@ import { useEffect, useState } from "react";
 import { supabase } from "../engine/Supabase";
 import LoginUD from "../components/LoginUD";
 import Web3 from "web3";
-import UDdis from "../components/UDdisconect";
+
 import { Spacer } from "@nextui-org/react";
 import ConnectPaper from "../components/ConnectPaper";
+import Login from "../components/login";
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
@@ -66,9 +80,9 @@ const Wallet = () => {
       <div className="container">
         <div className="wallet-inner">
           <div className="wallet-title text-center">
-            <h3 className="mb-3">Connect your crypto wallet</h3>
+            <h3 className="mb-3">Connect your W3B wallet</h3>
             <p className="m-auto mb-5">
-              Connect with one of available wallet providers
+              Connect with one of available providers
             </p>
           </div>
           <ul
@@ -86,8 +100,8 @@ const Wallet = () => {
                 aria-controls="pills-wallet-1"
                 aria-selected="true"
               >
-                <img src="assets/images/wallet/metamask.svg" alt="Metamask" />
-                <span>Metamask</span>
+                <img src="assets/images/wallet/thirdweb.png" alt="thirdweb" />
+                <span>Thirdweb</span>
               </div>
             </li>
             <li className="nav-item" role="presentation">
@@ -129,31 +143,22 @@ const Wallet = () => {
               <div className="wallet-content">
                 <div className="wallet-img">
                   <img
-                    src="assets/images/wallet/metamask.svg"
+                    src="assets/images/wallet/thirdweb.png"
                     alt="Wallet Name"
                   />
                 </div>
                 <div className="wallet-desc">
-                  <h5>Connect Your MetaMask Wallet</h5>
-                  <div
-                    className="default-btn small-btn move-right"
-                    onClick={async () => {
-                      await connectMetamask();
-                    }}
-                  >
-                    <span>Sign In</span>{" "}
-                  </div>
+                  <h5>Connect with Thirdweb</h5>
+                  <Login />
                   <a
-                    href="https://metamask.io/"
+                    href="https://thirdweb.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Learn how to use Metamask wallet
+                    Learn more about Thirdweb
                   </a>
-                  <h6>
-                    If you wish to disconnect after connecting, you must do from
-                    metamask for security
-                  </h6>
+                  <Spacer />
+                  <h6>Connect with Metamask, Coinbase, Or WalletConnect</h6>
                 </div>
               </div>
             </div>
@@ -166,14 +171,14 @@ const Wallet = () => {
               <div className="wallet-content">
                 <div className="wallet-img">
                   <img
-                    src="assets/images/wallet/channels4_profile.jpg"
+                    src="assets/images/wallet/ud22.png"
                     alt="Wallet Name"
                   />
                 </div>
                 <div className="wallet-desc">
                   <h5>Connect Your Unstoppable Domain</h5>
                   <LoginUD />
-                  <UDdis />
+                
                   <Spacer></Spacer>
                   <a
                     href="https://unstoppabledomains.com/?ref=e904125842e0429"
@@ -193,7 +198,8 @@ const Wallet = () => {
             >
               <div className="wallet-content">
                 <div className="wallet-img">
-                  <img src="assets/images/wallet/255.png" alt="Wallet Name" />
+                  <img src="assets/images/wallet/333.png" alt="Wallet Name" width="225"
+  height="125"/>
                 </div>
                 <div className="wallet-desc">
                   <h5>Connect With Email Paper wallet</h5>

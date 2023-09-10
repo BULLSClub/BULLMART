@@ -11,10 +11,23 @@ function UDdis() {
       console.log(authorization);
     });
   };
-  const logout = async () => {
-    await uauth.logout();
-    console.log("Logged out with Unstoppable");
+  const logout = () => {
+    const uauth = new UAuth({
+      clientID: "db9bc76f-a465-483e-9022-de0bd19ffe95",
+      redirectUri: "http://localhost:3000",
+      scope: "openid wallet email profile:optional social:optional"
+    });
+
+    uauth.logout();
+    setIsLoggedIn(false);
+    alert("Logged out successfully");
+    localStorage.setItem("isLoggedIn", "false");
+
+    // Redirect to homepage after logout
+    router.push("/");
   };
+
+
   return (
     <div id="Loginwithud">
       <a className="dropdown-item active">

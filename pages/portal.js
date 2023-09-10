@@ -21,9 +21,9 @@ export default function Sell() {
   
     
     const options = [
-      { value: "-", label: "choose", icon: "arrow.svg" },
+      { value: "-", label: "", icon: "arrow.svg" },
       { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-     
+
   
       
     ];
@@ -526,9 +526,8 @@ return (
                 {user}
               </Text>
             </Text>
-            <Text h6>Must Approve 1st, sign the transaction and wait for network to process</Text>
-            <Text h6>it could take few moments to process a transaction on the blockchain</Text>
-            
+            <Text h6>"BULLSCLUB NFTs no need for Approval"</Text>
+            <Text h6>Nonclub must be approved 1st, wait for network to process</Text>
             <Text h6>Add your price,Then list for sale</Text>
             <Text h6>Listing Fee :0.025 MATIC</Text>
             <Row>
@@ -569,6 +568,7 @@ return (
                       <Card.Image src={nft.image} />
                       <Card.Body  key={i}>
                         <Col>
+                        Not club NFT?
                         <Button
                           size="sm"
                           color="gradient"
@@ -601,9 +601,9 @@ return (
                             color: "black",
                             fontFamily: "SF Pro Display",
                             fontWeight: "bolder",
-                            fontSize: "15px",
+                            fontSize: "10px",
                           }}
-                          placeholder="Set your price"
+                          placeholder="Price in Matic"
                           value={resalePrice[i]}
                           onChange={(e) => {
                             let s = resalePrice
@@ -622,7 +622,7 @@ return (
                           onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
                         >
 
-                          Relist for Sale
+                          List for Sale
                         </Button>
 
 <Spacer />

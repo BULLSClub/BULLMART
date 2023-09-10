@@ -1,5 +1,6 @@
 import Products from '../data/Product/Trending.json';
 import ProductSingle from "./common/ProductSingle";
+import Link from 'next/link';
 
 var productList = Products;
 const TrendingNow = () => {
@@ -9,13 +10,18 @@ const TrendingNow = () => {
             <div className="container">
                 <div className="section-header">
                     <h3 className="header-title">Live Now</h3>
+                    
                     <div className="header-content">
-                        <ul className="filter-group d-flex flex-wrap align-items-center">
-                            <li className="li collection-filter">             
-                            </li> 
-                        </ul>
+                    <div className="header-content">
+                    <Link href="/explore" className="default-btn style-2 small-btn move-right">
+                        <span>View All
+                                <i className="icofont-circled-right"></i></span>
+
+                    </Link>        
+                    </div>
                     </div>
                 </div>
+                
                 <div className="section-wrapper">
                     <div className="row justify-content-center g-4">
                         {

@@ -1,16 +1,11 @@
-// QRCodeModal.js
 import React from 'react';
 import Modal from 'react-modal';
-import { FacebookShareButton, TwitterShareButton, EmailShareButton } from 'react-share';
-
 import QRCode from 'qrcode.react';
 
 
 
 const QRCodeModal = ({ isOpen, onRequestClose, qrDataURL, text }) => {
- 
   return (
-    
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
@@ -27,17 +22,16 @@ const QRCodeModal = ({ isOpen, onRequestClose, qrDataURL, text }) => {
       <div className="modal-body">
         {qrDataURL && (
           <div className="qr-container">
-            <QRCode value={text} renderAs="canvas" id="qr-code-canvas" />
+            <QRCode value={text} renderAs="canvas" id="qr-code-canvas" className="centered-qr" />
           </div>
         )}
         <div className="overlay-container">
           <img src="logo.png" alt="Overlay" className="overlay-image" />
         </div>
         <div className="button-group">
-          <a href={qrDataURL} download="qrcode.png">
-            Download Your QR Code
-          </a>
-          
+        <a href={qrDataURL} download="qrcode.png" target='_blank'>
+  Download Your QR Code
+</a>
         </div>
       </div>
     </Modal>

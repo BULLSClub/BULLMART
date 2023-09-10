@@ -9,6 +9,7 @@ import { ThirdwebProvider, paperWallet } from "@thirdweb-dev/react"
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
+
 const activeChain = "polygon"
 
 function MyApp({ Component, pageProps }) {
@@ -28,7 +29,12 @@ function MyApp({ Component, pageProps }) {
       paperWallet({
         paperClientId: "adc009f0-3363-451c-8469-68cc1536d050"
       })
-    ]}>
+    ]}
+    authConfig={{
+      authUrl: "/api/auth",
+      domain: "localhost:3000",
+      loginRedirect: "/"
+    }}>
     <NextUIProvider>
     <Header></Header>
     <Component {...pageProps} />
