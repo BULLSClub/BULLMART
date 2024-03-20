@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { supabase } from "../engine/Supabase";
-import LoginUD from "../components/LoginUD";
+
 import Web3 from "web3";
-import UDdis from "../components/UDdisconect";
-import { Spacer } from "@nextui-org/react";
-import ConnectPaper from "../components/ConnectPaper";
+
+
+
 
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
@@ -68,7 +68,7 @@ const Wallet = () => {
           <div className="wallet-title text-center">
             <h3 className="mb-3">Connect your crypto wallet</h3>
             <p className="m-auto mb-5">
-              Connect with one of available wallet providers
+              Connect with METAMASK
             </p>
           </div>
           <ul
@@ -90,34 +90,6 @@ const Wallet = () => {
                 <span>Metamask</span>
               </div>
             </li>
-            <li className="nav-item" role="presentation">
-              <div
-                className="nav-link wallet-tab"
-                id="wallet-tab-2"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-wallet-2"
-                role="tab"
-                aria-controls="pills-wallet-2"
-                aria-selected="false"
-              >
-                <img src="assets/images/wallet/1.png" alt="ud" />
-                <span>Unstoppable</span>
-              </div>
-            </li>
-            <li className="nav-item" role="presentation">
-              <div
-                className="nav-link wallet-tab"
-                id="wallet-tab-3"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-wallet-3"
-                role="tab"
-                aria-controls="pills-wallet-3"
-                aria-selected="false"
-              >
-                <img src="assets/images/wallet/255.png" alt="ud" />
-                <span>PaperWallet</span>
-              </div>
-            </li>
           </ul>
           <div className="tab-content" id="pills-tabContent">
             <div
@@ -134,9 +106,8 @@ const Wallet = () => {
                   />
                 </div>
                 <div className="wallet-desc">
-                  <h5>Connect Your MetaMask Wallet</h5>
                   <div
-                    className="default-btn small-btn move-right"
+                    className="default-btn  wallet-tab-1 small-btn move-right"
                     onClick={async () => {
                       await connectMetamask();
                     }}
@@ -154,59 +125,6 @@ const Wallet = () => {
                     If you wish to disconnect after connecting, you must do from
                     metamask for security
                   </h6>
-                </div>
-              </div>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="pills-wallet-2"
-              role="tabpanel"
-              aria-labelledby="wallet-tab-2"
-            >
-              <div className="wallet-content">
-                <div className="wallet-img">
-                  <img
-                    src="assets/images/wallet/channels4_profile.jpg"
-                    alt="Wallet Name"
-                  />
-                </div>
-                <div className="wallet-desc">
-                  <h5>Connect Your Unstoppable Domain</h5>
-                  <LoginUD />
-                  <UDdis />
-                  <Spacer></Spacer>
-                  <a
-                    href="https://unstoppabledomains.com/?ref=e904125842e0429"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more about Unstoppable Domains
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="pills-wallet-3"
-              role="tabpanel"
-              aria-labelledby="wallet-tab-3"
-            >
-              <div className="wallet-content">
-                <div className="wallet-img">
-                  <img src="assets/images/wallet/255.png" alt="Wallet Name" />
-                </div>
-                <div className="wallet-desc">
-                  <h5>Connect With Email Paper wallet</h5>
-
-                  <ConnectPaper />
-                  <Spacer></Spacer>
-                  <a
-                    href="https://withpaper.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Learn more about PaperWallet
-                  </a>
                 </div>
               </div>
             </div>

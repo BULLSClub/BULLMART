@@ -8,14 +8,13 @@ import Web3 from "web3";
 import Web3Modal from "web3modal";
 import Profil from "../engine/Profil";
 import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
-import NFTS from "../engine/NFTS.json";
-import UDdis from "./UDdisconect";
 import Image from "next/image";
+import HomeRadio from "./Radio";
+
+
 
 const Header = () => {
   const [wallet, setWallet] = useState("");
-  console.log("NFT", NFTS);
-
   async function connectUser() {
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
@@ -38,23 +37,6 @@ const Header = () => {
     );
   }, []);
 
-  async function onDisconnect() {
-    console.log("Killing the wallet connection", provider);
-    if (provider.close) {
-      await provider.close();
-      await web3Modal.clearCachedProvider();
-      provider = null;
-    }
-    selectedAccount = null;
-    document.querySelector("#prepare").style.display = "block";
-    document.querySelector("#connected").style.display = "none";
-  }
-  useEffect(() => {
-    if (typeof document !== undefined) {
-      require("bootstrap/dist/js/bootstrap");
-    }
-  }, []);
-
   const router = useRouter();
   return (
     <div className="test">
@@ -71,6 +53,10 @@ const Header = () => {
                 ></Image>
               </Link>
             </div>
+            <form action="#" className="header__search">
+              <HomeRadio />
+              BULLFM
+            </form>
             <div className="header__menu ms-auto">
               <ul className="header__nav mb-0">
                 <li className="header__nav-item">
@@ -91,39 +77,48 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link href="/createnft">Create NFT</Link>
-                    </li>
-                    <li>
-                      <Link href="/portal">Sell NFT</Link>
-                    </li>
-                    <li>
-                      <Link href="/explore"> Market</Link>
-                    </li>
-                    <li>
-                      <Link href="/collection">Collections</Link>
-                    </li>
-                    <li>
-                      <Link href="https://explorer.bullsclub.space/">
-                        Explorer
+                      <Link href="/createnft"> {" "}
+                        <span className="me-1">
+                          <i className="icofont-fix-tools"></i>
+                        </span>
+                        Create NFT
                       </Link>
                     </li>
                     <li>
-                      <Link href="/allauthors">Collectors</Link>
+                      <Link href="/portal"><span className="me-1">
+                          <i className="icofont-coins"></i>
+                        </span>
+                        Sell NFT
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/explore"> {" "}
+                        <span className="me-1">
+                          <i className="icofont-prestashop"></i>
+                        </span>{" "}
+                        Market
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/collection"> {" "}
+                        <span className="me-1">
+                          <i className="icofont-files-stack"></i>
+                        </span>
+                        Collections
+                      </Link>
+                    </li>
+                   
+                    <li>
+                      <Link href="/allauthors">  {" "}
+                        <span className="me-1">
+                          <i className="icofont-users"></i>
+                        </span>
+                        Collectors
+                      </Link>
                     </li>
                   </ul>
                 </li>
-                <li className="header__nav-item">
-                  <a
-                    className="header__nav-link"
-                    href="https://bullsclub.space/crypto-blog/"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    data-bs-offset="0,10"
-                  >
-                    BLOG
-                  </a>
-                </li>
+               
                 <li className="header__nav-item">
                   <a
                     className="header__nav-link"
@@ -139,39 +134,35 @@ const Header = () => {
                     </svg>
                   </a>
                   <ul className="dropdown-menu header__nav-menu">
-                    <li>
+                    
+                  <li>
                       <Link
-                        href="https://multisender.bullsclub.space"
-                        target="blank"
-                      >
-                        BEB20 Multisender
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="mailto:support@bullsclub.space"
+                        href="https://bullzar.bullsclub.space"
                         target="blank"
                       >
                         {" "}
-                        Support
+                        <span className="me-1">
+                          <i className="icofont-megaphone-alt"></i>
+                        </span>
+                        BULLZAR
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href="https://airdrop.bullsclub.space"
-                        target="blank"
-                      >
-                        Airdrop
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="https://bullsclub.space/bullsclub-polygon-bnb-nft-utility-vault/"
-                        target="blank"
-                      >
+                      <Link href="https://bullsclub.space" target="blank">
+                        {" "}
+                        <span className="me-1">
+                          <i className="icofont-bull"></i>
+                        </span>
                         BULLSCLUB
                       </Link>
                     </li>
+                    <Link href="mailto:support@bullsclub.space" target="blank">
+                      {" "}
+                      <span className="me-1">
+                        <i className="icofont-support-faq"></i>
+                      </span>{" "}
+                      Support
+                    </Link>
                   </ul>
                 </li>
               </ul>
@@ -202,17 +193,8 @@ const Header = () => {
                     <li>
                       <Profil wallet={wallet} />
                     </li>
-                    <li>
-                      <Link href="/portal">
-                        <span className="me-1">
-                          <i className="icofont-coins"></i>
-                        </span>
-                        Sell NFT
-                      </Link>
-                    </li>
-                    <li>
-                      <UDdis />
-                    </li>
+                   
+                    
                   </ul>
                 </div>
               </div>
