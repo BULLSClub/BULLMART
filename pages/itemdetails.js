@@ -33,7 +33,7 @@ const ItemInfo = {
       blockchain: "Ethereum (ETH)",
       image: "assets/images/seller/collector-3.gif",
       verified: true,
-      prfileLink: "/"
+      prfileLink: "/",
     },
     {
       id: "2",
@@ -43,10 +43,10 @@ const ItemInfo = {
       blockchain: "Ethereum (ETH)",
       image: "assets/images/seller/collector-3.gif",
       verified: true,
-      prfileLink: "/"
-    }
+      prfileLink: "/",
+    },
   ],
-  history: [{}]
+  history: [{}],
 };
 
 const ItemDetails = () => {
@@ -80,24 +80,24 @@ const ItemDetails = () => {
       gas: ethers.BigNumber.from(300000).toHexString(),
       data: nftContract.methods
         .ulisting(query.contactAddr, query.itemID)
-        .encodeABI() //make call to NFT smart contract
+        .encodeABI(), //make call to NFT smart contract
     };
     console.log(transactionParameters);
     //sign transaction via Metamask
     try {
       const txHash = await window.ethereum.request({
         method: "eth_sendTransaction",
-        params: [transactionParameters]
+        params: [transactionParameters],
       });
       // console.log(txHash);
       return {
         success: true,
-        status: "✅ Check out your transaction on Etherscan: " + txHash
+        status: "✅ Check out your transaction on Etherscan: " + txHash,
       };
     } catch (error) {
       return {
         success: false,
-        status: "😥 Something went wrong: " + error.message
+        status: "😥 Something went wrong: " + error.message,
       };
     }
   };
@@ -129,24 +129,24 @@ const ItemDetails = () => {
         .encodeABI(), //make call to NFT smart contract
       value: query.isPayble
         ? Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
-        : 0
+        : 0,
     };
     console.log(transactionParameters);
     //sign transaction via Metamask
     try {
       const txHash = await window.ethereum.request({
         method: "eth_sendTransaction",
-        params: [transactionParameters]
+        params: [transactionParameters],
       });
       // console.log(txHash);
       return {
         success: true,
-        status: "✅ Check out your transaction on Etherscan: " + txHash
+        status: "✅ Check out your transaction on Etherscan: " + txHash,
       };
     } catch (error) {
       return {
         success: false,
-        status: "😥 Something went wrong: " + error.message
+        status: "😥 Something went wrong: " + error.message,
       };
     }
   };
@@ -156,8 +156,8 @@ const ItemDetails = () => {
     {
       value: "0x489F35233247C4fA43B81ed09532673e7b801c39",
       label: "BULLSC",
-      icon: "11.jpg"
-    }
+      icon: "11.jpg",
+    },
   ];
   const getTokenFromAddr = () => {
     console.log(query);
@@ -238,7 +238,7 @@ const ItemDetails = () => {
                         >
                           <div className="author-profile d-flex flex-wrap align-items-center gap-15">
                             <div className="author-p-thumb">
-                              <Link href={"/author/" + query.seller}>
+                              <Link href={"/profile/" + query.seller}>
                                 <img
                                   src="assets/images/seller/collector-3.gif"
                                   alt="author-img "
@@ -249,7 +249,7 @@ const ItemDetails = () => {
                               <p className="mb-0">Owner</p>
                               <h6>
                                 <Link
-                                  href={"/author/" + query.seller}
+                                  href={"/profile/" + query.seller}
                                 >{`${query.seller}`}</Link>
                               </h6>
                             </div>
@@ -322,19 +322,19 @@ const ItemDetails = () => {
                             <li className="histo-item">
                               <p>
                                 Created by{" "}
-                                <Link href="/author">{`${ItemInfo.createdBy}`}</Link>
+                                <Link href="/profile">{`${ItemInfo.createdBy}`}</Link>
                               </p>
                             </li>
                             <li className="histo-item">
                               <p>
                                 Listed by{" "}
-                                <Link href="/author">{`${ItemInfo.listedBy}`}</Link>
+                                <Link href="/profile">{`${ItemInfo.listedBy}`}</Link>
                               </p>
                             </li>
                             <li className="histo-item">
                               <p>
                                 Owned by{" "}
-                                <Link href="/author">{`${ItemInfo.owners[0].name}`}</Link>
+                                <Link href="/profile">{`${ItemInfo.owners[0].name}`}</Link>
                               </p>
                             </li>
                           </ul>

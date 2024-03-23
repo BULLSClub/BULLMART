@@ -17,6 +17,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/404": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/404.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -27,15 +32,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/createnft": [
+    "/portal": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/createnft.js"
+      "static/chunks/pages/portal.js"
     ],
-    "/wallet": [
+    "/profile/[address]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/wallet.js"
+      "static/chunks/pages/profile/[address].js"
     ]
   },
   "ampFirstPages": []
