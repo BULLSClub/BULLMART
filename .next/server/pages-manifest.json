@@ -2,8 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/allauthors": "pages/allauthors.js",
   "/portal": "pages/portal.js",
-  "/collection": "pages/collection.js",
-  "/": "pages/index.js"
+  "/author/[address]": "pages/author/[address].js",
+  "/": "pages/index.js",
+  "/404": "pages/404.js",
+  "/itemdetails": "pages/itemdetails.js",
+  "/allauthors": "pages/allauthors.js",
+  "/explore": "pages/explore.js",
+  "/collection": "pages/collection.js"
 }

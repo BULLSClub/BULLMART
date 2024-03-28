@@ -1,9 +1,9 @@
-import { bscChain, polyChain, ethChain } from './chainchange';
-import Link from 'next/link';
-import 'sf-font';
-import { Col, Dropdown } from '@nextui-org/react';
-import React from 'react';
-import { useEffect } from 'react';
+import { bscChain, polyChain, ethChain } from "./chainchange";
+import Link from "next/link";
+import "sf-font";
+import { Col, Dropdown } from "@nextui-org/react";
+import React from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function ConnectChain(props) {
@@ -58,10 +58,12 @@ export default function ConnectChain(props) {
             router.pathname == "/author"
               ? "dropdown-item active"
               : "dropdown-item"
-          }>
+          }
+        >
           <span className="me-1">
             <i className="icofont-user-alt-6"></i>
-          </span>Profile
+          </span>
+          Profile
         </Link>
       </li>
     </Col>

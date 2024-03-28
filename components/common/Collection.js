@@ -1,12 +1,12 @@
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
-import Link from "next/link";
 
 SwiperCore.use([Autoplay]);
 const CollectionSingle = ({ item }) => {
   console.log(item);
   return (
-    <div className="col-lg-4 col-md-6 my-10">
+    <div className="col-lg-4 col-md-6">
       <div className="nft-item collection-item">
         <div className="nft-inner">
           <div className="coll-thumb-wrapper">

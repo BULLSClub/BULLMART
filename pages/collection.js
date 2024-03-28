@@ -30,6 +30,16 @@ const Collection = () => {
                   scrolling="no"
                 ></iframe>
               </Row>{" "}
+              <div className="container">
+                <Row>
+                  <iframe
+                    src="https://umbria.network/widgetv2/?ref=BrmtlnsSflLb3dim"
+                    width="500"
+                    height="400"
+                    scrolling="no"
+                  ></iframe>
+                </Row>{" "}
+              </div>
             </div>
           </div>
         </div>
