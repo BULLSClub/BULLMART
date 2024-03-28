@@ -12,11 +12,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -27,15 +22,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/createnft": [
+    "/allauthors": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/createnft.js"
+      "static/chunks/pages/allauthors.js"
     ],
-    "/wallet": [
+    "/collection": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/wallet.js"
+      "static/chunks/pages/collection.js"
+    ],
+    "/portal": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/portal.js"
     ]
   },
   "ampFirstPages": []

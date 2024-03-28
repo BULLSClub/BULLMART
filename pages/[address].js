@@ -56,7 +56,7 @@ const AuthorInfo = {
         "GOLD DIGGER (x Antoni Tudisco) #44/44 was put up for sale for0.0991 ETH",
       image: "/assets/images/activity/01.gif",
       by: "@rasselmrh",
-      createdAt: "10/07/2022, 10:03 am"
+      createdAt: "10/07/2022, 10:03 am",
     },
     {
       id: 2,
@@ -64,7 +64,7 @@ const AuthorInfo = {
       description: "two rare collection purchased for0.001 ETH",
       image: "/assets/images/activity/02.gif",
       by: "@technonazmul",
-      createdAt: "10/07/2022, 08:23 am"
+      createdAt: "10/07/2022, 08:23 am",
     },
     {
       id: 3,
@@ -72,7 +72,7 @@ const AuthorInfo = {
       description: "The Shopping Cart #54/65 was put up for sale for 0.021 ETH",
       image: "/assets/images/activity/03.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am"
+      createdAt: "10/07/2022, 12:03 am",
     },
     {
       id: 4,
@@ -81,9 +81,9 @@ const AuthorInfo = {
         "A offer of $200.00 was placed for ÜNDERSTANDING (Sean Williams) #1/20",
       image: "/assets/images/activity/04.gif",
       by: "@reo2lxsr",
-      createdAt: "10/07/2022, 12:03 am"
-    }
-  ]
+      createdAt: "10/07/2022, 12:03 am",
+    },
+  ],
 };
 
 const Author = () => {
@@ -110,8 +110,8 @@ const Author = () => {
       headers: {
         accept: "application/json",
         "X-API-KEY":
-          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7"
-      }
+          "bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7",
+      },
     };
 
     const rest = await axios.get(
@@ -146,9 +146,9 @@ const Author = () => {
             name: "",
             image: "/assets/images/seller/collector-1.png",
             verified: false,
-            prfileLink: "/"
-          }
-        ]
+            prfileLink: "/",
+          },
+        ],
       };
     });
     setProds(simpleHashNFTs);
