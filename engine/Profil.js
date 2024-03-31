@@ -6,13 +6,22 @@ import React from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-export default function ConnectChain(props) {
+export default function Profile(props) {
+  console.log("propspropspropspropsprops", props);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!props?.wallet) {
+      router.push("/wallet");
+    }
+  }, []);
+
   const [selected, setSelected] = React.useState(new Set(["Set Network"]));
   const selectedValue = React.useMemo(
     () => Array.from(selected).join(", ").replaceAll("_", " "),
     [selected]
   );
-  const router = useRouter();
+
   async function enableChain() {
     var bsc = "Binance Smart Chain";
     var poly = "Polygon";
@@ -53,9 +62,9 @@ export default function ConnectChain(props) {
     <Col css={{ marginTop: "$2" }}>
       <li>
         <Link
-          href={"/author/" + props.wallet}
+          href={"/author/" + props?.wallet}
           className={
-            router.pathname == "/author"
+            router?.pathname == "/author"
               ? "dropdown-item active"
               : "dropdown-item"
           }

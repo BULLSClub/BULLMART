@@ -2,7 +2,7 @@ import OwnerList from "./OwnerList";
 import Link from "next/link";
 
 const ProductSingle2 = ({ data, countdown = false, style }) => {
-  console.log("🚀 ~ file: ProductSingle.js:6 ~ ProductSingle ~ data:", data);
+  // console.log("🚀 ~ file: ProductSingle.js:6 ~ ProductSingle ~ data:", data);
   return (
     <div className="nft-item" style={style}>
       <div className="nft-inner">
@@ -81,8 +81,8 @@ const ProductSingle2 = ({ data, countdown = false, style }) => {
                   href={{
                     pathname: "/itemdetails",
                     query: {
-                      seller: JSON.stringify(data?.owners)
-                    }
+                      seller: JSON.stringify(data?.owners),
+                    },
                   }}
                 >
                   {`${data.title}`}

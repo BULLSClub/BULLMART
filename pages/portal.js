@@ -675,7 +675,15 @@ export default function Sell() {
                                 setResaleToke(s);
                               }}
                             /> */}
-                            <Text>MATIC</Text>
+                            <div className="d-flex gap-2 align-items-center m-1">
+                              <Text>MATIC</Text>
+                              <img
+                                src="/matic-token-icon.webp"
+                                style={{ width: 36 }}
+                                alt="MATIC"
+                              />
+                            </div>
+
                             <Spacer></Spacer>
                           </Col>
                           <Col>

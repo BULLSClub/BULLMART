@@ -13,7 +13,7 @@ import { supabase } from "../../engine/Supabase";
 import ActivitySingle from "../../components/common/ActivitySingle";
 import PopularList from "../../data/Collection/Popular.json";
 import FollowerSingle from "../../components/common/Collector";
-// import Link from "next/link";
+import Link from "next/link";
 
 const URLsupa =
   "https://gaiijbybqpongleztxsz.supabase.co/storage/v1/object/public/avatars/";
@@ -177,11 +177,14 @@ const Author = () => {
     setUserConnected(JSON.parse(localStorage.getItem("data")));
 
     if (window.ethereum.selectedAddress) {
-      console.log(window.ethereum.selectedAddress);
+      console.log(
+        "window.ethereum.selectedAddress",
+        window.ethereum.selectedAddress
+      );
     } else {
       router.push("/wallet");
     }
-    console.log(address);
+    console.log("address", address);
     getSimpleHash(address);
     getAvatar();
   }, [loading]);
@@ -327,19 +330,13 @@ const Author = () => {
                           >
                             All NFT
                           </button>
-                          {/* <Link
+                          <Link
                             className="nav-link"
                             id="nav-follower-tab"
-                            // data-bs-toggle="tab"
-                            // data-bs-target="#follower"
-                            // type="button"
-                            // role="tab"
-                            // aria-controls="follower"
-                            // aria-selected="false"
                             href="/portal"
                           >
                             Sell<span></span>
-                          </Link> */}
+                          </Link>
                         </div>
                       </nav>
                       <div className="tab-content" id="nav-tabContent">
