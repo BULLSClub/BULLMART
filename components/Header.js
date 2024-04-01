@@ -10,11 +10,14 @@ import Profil from "../engine/Profil";
 import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
 import Image from "next/image";
 import HomeRadio from "./Radio";
-
+import NFTS from "../engine/NFTS.json";
 
 
 const Header = () => {
   const [wallet, setWallet] = useState("");
+  console.log("NFT", NFTS);
+
+
   async function connectUser() {
     const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
@@ -37,6 +40,33 @@ const Header = () => {
     );
   }, []);
 
+  async function onDisconnect() {
+    console.log("Killing the wallet connection", provider);
+
+    // TODO: Which providers have close method?
+    if (provider.close) {
+      await provider.close();
+
+      // If the cached provider is not cleared,
+      // WalletConnect will default to the existing session
+      // and does not allow to re-scan the QR code with a new wallet.
+      // Depending on your use case you may want or want not his behavir.
+      await web3Modal.clearCachedProvider();
+      provider = null;
+    }
+
+    selectedAccount = null;
+
+    // Set the UI back to the initial state
+    document.querySelector("#prepare").style.display = "block";
+    document.querySelector("#connected").style.display = "none";
+  }
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      require("bootstrap/dist/js/bootstrap");
+    }
+  }, []);
+  
   const router = useRouter();
   return (
     <div className="test">

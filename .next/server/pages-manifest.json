@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/author/[address]": "pages/author/[address].js",
-  "/portal": "pages/portal.js",
-  "/wallet": "pages/wallet.js"
+  "/wallet": "pages/wallet.js",
+  "/": "pages/index.js",
+  "/itemdetails": "pages/itemdetails.js"
 }

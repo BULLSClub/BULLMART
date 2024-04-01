@@ -71,112 +71,133 @@ const Footer = () => {
               <div className="row g-5">
                 <div className="col-lg-3 col-md-6">
                   <div className="footer-link-item">
-                    <h4>About</h4>
+                  <h4>Company</h4>
                     <ul className="footer-link-list">
-                      <li>
-                        <a
-                          href="https://bullsclub.space/"
-                          target="blank"
-                          className="footer-link"  >
-                          Explore
-                        </a>
-                      </li> 
-                      <li>
-                        <a
-                          href="https://tokenomics.bullsclub.space/" target="blank"
-                          className="footer-link" >
-                          Token
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://radio.bullsclub.space/" target="blank"
-                          className="footer-link"  >
-                          Radio
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6">
-                  <div className="footer-link-item">
-                    <h4>Company</h4>
-                    <ul className="footer-link-list">
-                      <li>
-                        <a
-                          href="https://bullsclub.space/cryptobullsclub-space-team/" target="blank"
-                          className="footer-link"  >
-                          Team
-                        </a>
-                      </li> 
-                      <li>
-                        <a
-                          href="https://bullsclub.space/crypto-blog/" target="blank"
-                          className="footer-link"  >
-                          WEB3 Blog
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://travel-blog.bullsclub.space/" 
-                          target="blank"
-                          className="footer-link"   >
-                          Travel Blog
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6">
-                  <div className="footer-link-item">
-                    <h4>Policy</h4>
-                    <ul className="footer-link-list">
-                      <li>
-                        <Link href="/terms" className="footer-link">
+                    <li>
+                        <Link href="/FAQ/terms" className="footer-link">
                           Terms
-                        </Link> 
+                        </Link>
                       </li>
+
                       <li>
+                        {" "}
                         <a
-                          href="https://bullsclub.space/bullsclub-space/faq/privacy-policy/"
-                          className="footer-link"   >
-                          Privacy Policy
-                        </a>
+                          href="/FAQ/Privacy"
+                          className="footer-link"
+                          target="blank"
+                        >
+                          Privacy
+                        </a>{" "}
                       </li>
                       <li>
-                        <Link href="/help" className="footer-link">
-                          FAQ 
+                        {" "}
+                        <a
+                          href="/FAQ/Aggrement"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          Agreement{" "}
+                        </a>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <Link href="/FAQ/help" className="footer-link">
+                          {" "}
+                          FAQ{" "}
+                        </Link>{" "}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                <div className="footer-link-item">
+                    <h5>BULLMART</h5>
+                    <ul className="footer-link-list">
+                      <li>
+                        <Link href="/portal" className="footer-link">
+                          Sell
                         </Link>
                       </li>
                       <li>
-                        <a
-                          href="https://bullsclub.space/bullsclub-space/faq/bullsc-nft-agreement/" target="blank"
-                          className="footer-link"  >
-                          Agreement
-                        </a>
+                        <Link href="/explore" className="footer-link">
+                          Market
+                        </Link>
                       </li>
                       <li>
+                        {" "}
                         <a
-                          href="https://bullsclub.space/presentation/" target="blank"
-                          className="footer-link"  >
-                          Learn
-                        </a>
+                          href="mailto:support@bullsclub.space"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          {" "}
+                          Support{" "}
+                        </a>{" "}
+                      </li>
+                      <li>
+                        {" "}
+                        <a
+                          href="mailto:hr@bullsclub.space"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          {" "}
+                          Join us{" "}
+                        </a>{" "}
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div className="footer-link-item">
+                <div className="footer-link-item">
                     <h4>Comunity</h4>
                     <ul className="footer-link-list">
                       <li>
                         <a
+                          href="https://bullsclub.space/crypto-blog/"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          Blog
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/collections"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          Collections
+                        </a>
+                      </li>
+                      <li>
+                        {" "}
+                        <a
+                          href="mailto:info@bullsclub.space"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          {" "}
+                          Suggestion{" "}
+                        </a>{" "}
+                      </li>
+                      <li>
+                        <a
                           href="https://spotvirtual.com/@bullsclub-93f62e312e392bb1/@bulls-conference/@patio"
                           target="blank"
-                          className="footer-link"  >
+                          className="footer-link"
+                        >
                           Spot
                         </a>
                       </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                  <div className="footer-link-item">
+                    <h4>MEMBERS</h4>
+                    <ul className="footer-link-list">
+                      
                       <li>
                         <a
                           href="mailto:info@bullsclub.space"
