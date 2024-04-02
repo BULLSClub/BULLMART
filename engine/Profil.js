@@ -1,4 +1,4 @@
-import { bscChain, polyChain, ethChain } from "./chainchange";
+import { bscChain, polyChain } from "./chainchange";
 import Link from "next/link";
 import "sf-font";
 import { Col, Dropdown } from "@nextui-org/react";
@@ -12,7 +12,7 @@ export default function Profile(props) {
 
   useEffect(() => {
     if (!props?.wallet) {
-      router.push("/wallet");
+      router.push("/");
     }
   }, []);
 
@@ -25,25 +25,19 @@ export default function Profile(props) {
   async function enableChain() {
     var bsc = "Binance Smart Chain";
     var poly = "Polygon";
-    var eth = "Ethereum";
 
     if (bsc == selectedValue) {
       bscChain();
     } else if (poly == selectedValue) {
       polyChain();
-    } else if (eth == selectedValue) {
-      ethChain();
-    }
+    } 
   }
   const blockImage = React.useMemo(() => {
-    var eth = "Ethereum";
     var bsc = "Binance Smart Chain";
     var pol = "Polygon";
 
     var init = "Set Network";
-    if (selectedValue == eth) {
-      return <img src="./ethereumlogo.png" width={"110px"} />;
-    } else if (selectedValue == bsc) {
+     if (selectedValue == bsc) {
       return <img src="./bsc.png" width={"110px"} />;
     } else if (selectedValue == pol) {
       return <img src="./polygonwhite.png" width={"110px"} />;
@@ -64,7 +58,7 @@ export default function Profile(props) {
         <Link
           href={"/author/" + props?.wallet}
           className={
-            router?.pathname == "/author"
+            router?.pathname == "/author/"
               ? "dropdown-item active"
               : "dropdown-item"
           }

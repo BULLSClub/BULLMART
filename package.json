@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,11 +15,7 @@
     "@paperxyz/js-client-sdk": "^0.2.7",
     "@pinata/sdk": "^2.1.0",
     "@supabase/supabase-js": "^2.14.0",
-    "@thirdweb-dev/chains": "^0.1.50",
     "@thirdweb-dev/react": "^3.14.39",
-    "@thirdweb-dev/sdk": "^3.10.58",
-    "@uauth/js": "^2.8.0",
-    "@unstoppabledomains/resolution": "^8.5.0",
     "axios": "^1.5.0",
     "bootstrap": "^5.0.1",
     "canvas-confetti": "^1.5.1",

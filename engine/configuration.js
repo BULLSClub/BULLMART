@@ -18,13 +18,10 @@ export var bsctnft = "YOUR CONTRACT ADDRESS";
 export var bsctrpc = "https://bsc-dataseed1.ninicoin.io";
 export var polygonRpc = "https://polygon-rpc.com/";
 
+
 export var BearNFT = "0x4C52548145a99EAcDe86561ef30Cd01c103cB579";
 export var  CowsNFT = "0xFc6D74b6c444b00f39544152553b306C24542d94";
 export var  YellowCowsNFT = "0x899310114B573E768747ea866c0edC51F39C15Cb";
-export var PolarBearNFT = "0xd2921CF90fEE0cC6Ef9961cBf60C8Cb6F07166eD";
-export var  BullsNFT = "0xdd1147C1362DcbE00f87751eeDD60cD625A4e1bA";
-export var  BulBSCNFT = "0xdd1147C1362DcbE00f87751eeDD60cD625A4e1bA";
-export var BearBSCNFT = "0x4C52548145a99EAcDe86561ef30Cd01c103cB579";
 
 
 export var  marketplaceAddress = "0xDBC3233788bab61C0A9D9b155539DE04fdA06EAd";

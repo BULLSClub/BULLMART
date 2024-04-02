@@ -1,5 +1,5 @@
 import PopularList from "../data/Collection/Popular.json";
-import CollectionSingle from "../components/common/Collection";
+import CollectionSingle from "../components/common/Collection/Collection";
 import { Row } from "react-bootstrap";
 var GetPopularList = PopularList;
 

@@ -4,12 +4,9 @@ import "swiper/css";
 import "../public/assets/css/icofont.min.css";
 import "../styles/globals.css";
 import { useSSR } from "@nextui-org/react";
-import { NextUIProvider } from "@nextui-org/react";
-
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const activeChain = "polygon";
 
 function MyApp({ Component, pageProps }) {
   const { isBrowser } = useSSR();
@@ -29,11 +26,9 @@ function MyApp({ Component, pageProps }) {
             size="35%"
           />
         </Head>
-          <NextUIProvider>
               <Header></Header>
               <Component {...pageProps} />
               <Footer></Footer>
-          </NextUIProvider>
       </div>
     )
   );

@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/FAQ/help": "pages/FAQ/help.js",
+  "/portal": "pages/portal.js",
   "/wallet": "pages/wallet.js",
-  "/": "pages/index.js",
-  "/itemdetails": "pages/itemdetails.js"
+  "/": "pages/index.js"
 }

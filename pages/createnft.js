@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
-
 import {
   DefaultNFTPolygon,
   polygonRpc,
@@ -12,9 +11,9 @@ import Web3 from "web3";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+
 const { ethers, Wallet } = require("ethers");
 const axios = require("axios");
-
 
 const JWT = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxNTEyMDQ4ZS0xOWFlLTQ4ZmYtOGFiOS0xZGQxNDljMGRiMjQiLCJlbWFpbCI6ImNvbnRhY3QuZWxlYXJuaW5nMjAyMEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMWQ0YjNhN2FjMDBiZWYwMDU5ZmMiLCJzY29wZWRLZXlTZWNyZXQiOiIzMzdlMTM5OTUwMjUwYjBmOWM1OGIzOTJkYTkxZjUzM2U1NWViZmNmNDQ3ZThiMWFkMDFiOTg5MTRkYWQ5ZTljIiwiaWF0IjoxNjc1MTY1MTUwfQ.Of1UvNC2NF3oBh0Qkr7aA7rVNJCl6oN6W08TeOYmEVI`;
 export const createToken = async (baseURI) => {
@@ -87,6 +86,8 @@ const CreateNft = () => {
   console.log(selectedFile);
   const [titreNFT, settitreNFT] = useState("");
   const [descriptionNFT, setdescriptionNFT] = useState("");
+
+
   // useEffect(() => {
   //   if (window?.ethereum?.selectedAddress) {
   //     console.log("new", window.ethereum.selectedAddress);
@@ -94,6 +95,8 @@ const CreateNft = () => {
   //     router.push("/Wallet");
   //   }
   // }, []);
+
+
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -144,7 +147,7 @@ const CreateNft = () => {
         console.log(error);
       }
       alert ("NFT proccesing 🐮! be patient, it could take up to 5 min");
-      router.push("portal");
+      router.push("/portal");
     } else {
       // Handle error for exceeding file size limit
       alert("File size exceeds the limit of 150MB.");
@@ -163,7 +166,7 @@ const CreateNft = () => {
                     <h5>Upload 3D items, Music, Video or Art and more</h5>
                     <div className="upload-item mb-30">
                       <p>
-                        PNG,JPG,JPEG,SVG,WEBP,AVI,HTML,GLP,Mp3 & Mp4 (Max-150mb)
+                        PNG,JPG,JPEG,SVG,WEBP,HTML, (Max-150mb)
                       </p>
                       <div className="custom-upload">
                         <div className="file-btn">
@@ -212,18 +215,7 @@ const CreateNft = () => {
                           </span>
                           Art
                         </li>
-                        <li className="item-cat-btn">
-                          <span>
-                            <i className="icofont-music-alt"></i>
-                          </span>
-                          Music
-                        </li>
-                        <li className="item-cat-btn">
-                          <span>
-                            <i className="icofont-video-cam"></i>
-                          </span>
-                          Video
-                        </li>
+                      
                         <li className="item-cat-btn">
                           <span>
                             <i className="icofont-ticket"></i>
@@ -263,49 +255,8 @@ const CreateNft = () => {
                         </li>
                       </ul>
                     </div>
-
-                    <div className="item-price-field mb-3">
-                      <div className="row g-3">
-                        <div className="col-md-6">
-                          <div className="form-floating">
-                            <select
-                              className="form-select"
-                              id="selectCrypto"
-                              aria-label="Floating label select"
-                            >
-                              <option>MATIC</option>
-                              <option value="1">BNB</option>
-                              <option value="3">BULLS</option>
-                            </select>
-                            <label>Select Currency</label>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="form-floating">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="itemPriceInput"
-                              placeholder="Item Price"
-                            />
-                            <label>Item Price</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div className="item-price-field mb-5">
-                      <div className="row g-3 justify-content-center">
-                        <div className="col-md-6 col-lg-4">
-                          <div className="form-floating">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="royalityInput"
-                              placeholder="Royalities"
-                            />
-                            <label>Royalities</label>
-                          </div>
-                        </div>
+                      <div className="row g-3 justify-content-center">                      
                         <div className="col-md-6 col-lg-4">
                           <div className="form-floating">
                             <input
@@ -345,7 +296,7 @@ const CreateNft = () => {
                       target="_blank"
                     >
                       <a className="default-btn move-right">
-                        <span>Minted NFTs @Opensea</span>
+                        <span>Minted Polygon NFTs @Opensea</span>
                       </a>
                     </a>
                   </div>

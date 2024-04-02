@@ -78,33 +78,25 @@ const Footer = () => {
                           Terms
                         </Link>
                       </li>
-
                       <li>
-                        {" "}
-                        <a
+                        <Link
                           href="/FAQ/Privacy"
-                          className="footer-link"
-                          target="blank"
-                        >
+                          className="footer-link" >
                           Privacy
-                        </a>{" "}
+                        </Link>
                       </li>
                       <li>
-                        {" "}
-                        <a
+                        <Link
                           href="/FAQ/Aggrement"
-                          target="blank"
                           className="footer-link"
                         >
-                          Agreement{" "}
-                        </a>{" "}
+                          Agreement
+                        </Link>
                       </li>
-                      <li>
-                        {" "}
-                        <Link href="/FAQ/help" className="footer-link">
-                          {" "}
-                          FAQ{" "}
-                        </Link>{" "}
+                      <li>                   
+                        <Link href="/FAQ/help" className="footer-link">      
+                          FAQ
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -134,17 +126,7 @@ const Footer = () => {
                           Support{" "}
                         </a>{" "}
                       </li>
-                      <li>
-                        {" "}
-                        <a
-                          href="mailto:hr@bullsclub.space"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          {" "}
-                          Join us{" "}
-                        </a>{" "}
-                      </li>
+                     
                     </ul>
                   </div>
                 </div>
@@ -154,7 +136,7 @@ const Footer = () => {
                     <ul className="footer-link-list">
                       <li>
                         <a
-                          href="https://bullsclub.space/crypto-blog/"
+                          href="https://bullsclub.space/blog-2/"
                           target="blank"
                           className="footer-link"
                         >
@@ -163,8 +145,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/collections"
-                          target="blank"
+                          href="/collection"
                           className="footer-link"
                         >
                           Collections
@@ -173,12 +154,12 @@ const Footer = () => {
                       <li>
                         {" "}
                         <a
-                          href="mailto:info@bullsclub.space"
+                          href="https://bullzar.bullsclub.space/"
                           target="blank"
                           className="footer-link"
                         >
                           {" "}
-                          Suggestion{" "}
+                          BULLZAR{" "}
                         </a>{" "}
                       </li>
                       <li>
@@ -214,19 +195,12 @@ const Footer = () => {
                           Join the team
                         </a>
                       </li>
+                     
                       <li>
                         <a
-                          href="mailto:support@bullsclub.space"
-                          target="blank"
+                          href="https://bullswap.bullsclub.space/"  target="blank"
                           className="footer-link"  >
-                          Support
-                        </a>
-                      </li> 
-                      <li>
-                        <a
-                          href="https://airdrop.bullsclub.space" 
-                          className="footer-link"  >
-                          Airdrop
+                          BULL TOKEN
                         </a>
                       </li>
                     </ul>

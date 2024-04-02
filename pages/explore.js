@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react';
 import { useRouter } from "next/router";
 import {ethers} from "ethers";
-import ProductSingle from "../components/common/ProductSingle1";
+import ProductSingle from "../components/common/Products/ProductSingle1";
 import BullscMarket from "../engine/BullscMarket.json"
 import NFT from "../engine/NFT.json"
 import axios from "axios"
