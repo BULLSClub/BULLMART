@@ -13,17 +13,19 @@ const Banner = () => {
                 <div className="banner-wrapper">
                     <div className="row align-items-center justify-content-center">
                         <div className="col-lg-8">
-                            <div className="banner-content text-center">          
+                            <div className="banner-content text-center"> 
+                            <h4>Polygon NFT Marketplace </h4>         
                             <h2>Collect
                                     And Sell Extraordinary NFTs </h2>
+
                                     <h4>Sell NFTs on Polygon, Create and MINT on Poly/BSC</h4>
                                
-                                <h4>Choose Network First ↗️</h4>
-                                <h4>Polygon NFT Marketplace </h4>
+                                <h4>Connect Wallet First ↗️</h4>
+                              
                                 <p></p>
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
-                                    <Link href="/wallet" className="default-btn move-top">
-                                        <span>METAMASK LOGIN</span>
+                                    <Link href="/portal" className="default-btn move-top">
+                                        <span>SELL</span>
                                     </Link>
                                     <Link href="/createnft" className="default-btn style-2 move-right">
                                         <span>CREATE</span>

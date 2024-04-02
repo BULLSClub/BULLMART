@@ -12,15 +12,10 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
+    "/CollectionSingle/Polygon/BearPoly": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
-    "/FAQ/help": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/FAQ/help.js"
+      "static/chunks/pages/CollectionSingle/Polygon/BearPoly.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
@@ -32,15 +27,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/portal": [
+    "/collection": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/portal.js"
-    ],
-    "/wallet": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/wallet.js"
+      "static/chunks/pages/collection.js"
     ]
   },
   "ampFirstPages": []

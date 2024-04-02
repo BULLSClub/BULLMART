@@ -24,12 +24,14 @@ export var  CowsNFT = "0xFc6D74b6c444b00f39544152553b306C24542d94";
 export var  YellowCowsNFT = "0x899310114B573E768747ea866c0edC51F39C15Cb";
 
 
+
 export var  marketplaceAddress = "0xDBC3233788bab61C0A9D9b155539DE04fdA06EAd";
 export var  bsctmarket = "0xE2A39dF45d56A436934D8EaCbcF8465E16221f6e";
 
 
 export var DefaultNFTPolygon = "0x1BD7855D8289613A9256EA6c344d8687223138eb";
 export var DefaultNFTBSC = "0x087EaD8aaB7488459f087508C613F53C3c1B471E";
+
 
 
 export var NEXT_PUBLIC_SUPABASE_URL= "https://aiymggmhhqrbszawrbyh.supabase.co"; // paste your project url here

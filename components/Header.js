@@ -177,6 +177,19 @@ const Header = () => {
                         BULLZAR
                       </Link>
                     </li>
+
+                    <li>
+                      <Link
+                        href="https://bullswap.bullsclub.space"
+                        target="blank"
+                      >
+                        {" "}
+                        <span className="me-1">
+                          <i className="icofont-money-bag"></i>
+                        </span>
+                        BULL TOKEN
+                      </Link>
+                    </li>
                     <li>
                       <Link href="https://bullsclub.space" target="blank">
                         {" "}
@@ -203,7 +216,7 @@ const Header = () => {
                   <i className="icofont-search-1"></i>
                 </button>
               </div>
-              <ConnectChain />
+              
               <div className="header__action header__action--profile">
                 <div className="dropdown">
                   <a
