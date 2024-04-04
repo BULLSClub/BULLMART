@@ -2,7 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/collection": "pages/collection.js",
-  "/CollectionSingle/Polygon/CowPoly": "pages/CollectionSingle/Polygon/CowPoly.js",
-  "/CollectionSingle/Polygon/BearPoly": "pages/CollectionSingle/Polygon/BearPoly.js"
+  "/": "pages/index.js",
+  "/createnft": "pages/createnft.js",
+  "/author/[address]": "pages/author/[address].js",
+  "/portal": "pages/portal.js"
 }

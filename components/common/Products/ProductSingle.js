@@ -8,11 +8,7 @@ const ProductSingle = ({ data, countdown = false, style }) => {
       <div className="nft-inner">
         <div className="nft-item-top d-flex justify-content-between align-items-center">
           <div className="author-part">
-            <ul className="author-list d-flex">
-              {data.owners.map((item) => (
-                <OwnerList data={item} key={item.id} />
-              ))}
-            </ul>
+            
           </div>
           <div className="more-part">
             <div className=" dropstart">
@@ -113,7 +109,7 @@ const ProductSingle = ({ data, countdown = false, style }) => {
               <div className="nft-price d-flex align-items-center">
                 <span className="currency-img">
                   <img
-                    src="/assets/images/currency/currency-3.png"
+                    src="/assets/images/currency/currency-1.png"
                     alt="currency img"
                   />
                 </span>

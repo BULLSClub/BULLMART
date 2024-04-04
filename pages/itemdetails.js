@@ -448,11 +448,11 @@ const ItemDetails = () => {
         </div>
 
         <div className="text-center mt-5">
-          <a href="/explore">
-            <a className="default-btn move-right">
+          <Link className="default-btn move-right" href="/explore">
+            
               <span>BACK TO MARKET</span>
-            </a>
-          </a>
+            
+          </Link>
         </div>
       </div>
     </div>

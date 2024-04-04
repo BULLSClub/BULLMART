@@ -3,11 +3,6 @@ import Products from '../../data/Product/Products.json';
 import ProductSingle from "../../components/common/Products/ProductSingle";
 
 
-import Footer from '../../components/Footer/Footersocial'
-
-
-
-
 var productList = Products.slice(0,12);
 
 
@@ -48,7 +43,7 @@ const CollectionSingle = () => {
                     </div>
                 </div>
             </div>
-        </section><Footer />
+        </section>
         </div>
     )
 }

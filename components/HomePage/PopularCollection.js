@@ -1,5 +1,5 @@
 import CollectionSingle from "../common/Collection/Collection1";
-import PopularList from '../../data/Collection/Popular1.json';
+import PopularList from '../../data/Collection/Popular.json';
 import Link from 'next/link';
 
 var GetPopularList = PopularList.slice(0,3);

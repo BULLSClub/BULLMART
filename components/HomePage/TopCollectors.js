@@ -1,43 +1,44 @@
 import Collector from '../common/Collection/Collector';
 import User from '../../data/User/Users.json';
 import Link from 'next/link';
+import { Container } from '@nextui-org/react';
+
 
 var TopCollector = User.slice(0,9);
 const TopCollectors = () => {
-    return (
-        <div>
-            <section className="seller-section pb-100">
-        <div className="container">
+  return (
+    <div>
+    <section className="seller-section pb-100">
+<div className="container">
+
+
+<Container>
             <div className="section-header">
-                <h3 className="header-title">Club Collectors</h3>
+                <h3 className="header-title">Collectors</h3>
                 <div className="header-content">
-                    <ul className="filter-group d-flex flex-wrap align-items-center">       
-                        <li className="li day-filter">      
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className="section-wrapper">
-                <div className="seller-wrapper">
-                    <div className="row g-3">
-                        {
-                            TopCollector.map((item,i=1) =>(
-                                <Collector key={item.id} data={item} count={i} />
-                                
-                            ))
-                        }  
+                    <Link href="/allauthors" className="default-btn style-2 small-btn move-right">
+                    <span>View All
+                            <i className="icofont-circled-right"></i></span> 
+                    </Link>
                     </div>
-                    <div className="text-center mt-5">
-                        <Link href="/allauthorstwo" className="default-btn move-right">
-                        <span>All Collectors</span>
-                        </Link>
-                    </div>
-                </div>
+            </div></Container>
+    <div className="section-wrapper">
+        <div className="seller-wrapper">
+            <div className="row g-3">
+                {
+                    TopCollector.map((item,i=1) =>(
+                        <Collector key={item.id} data={item} count={i} />
+                        
+                    ))
+                }  
             </div>
+            
         </div>
-    </section>
-        </div>
-    );
+    </div>
+</div>
+</section>
+</div>
+  )
 }
 
-export default TopCollectors;
+export default TopCollectors

@@ -2,34 +2,37 @@ import BannerSingle from '../common/BannerSingle'
 import BannerImages from "../../data/Banner/BannerImages.json";
 import Link from 'next/link';
 
-
 var BannerImageListOne = BannerImages.slice(0,12);
 var BannerImageListTwo = BannerImages.slice(11,24);
+
 const Banner = () => {
-    return (
+    return(
         <div>
         <section className="banner-section style-1"  style={{backgroundImage:"url('assets/images/banner/bg.jpg')"}}>
             <div className="container">
                 <div className="banner-wrapper">
                     <div className="row align-items-center justify-content-center">
                         <div className="col-lg-8">
-                            <div className="banner-content text-center"> 
+                            <div className="banner-content text-center">          
                             <h4>Polygon NFT Marketplace </h4>         
                             <h2>Collect
                                     And Sell Extraordinary NFTs </h2>
 
-                                    <h4>Sell NFTs on Polygon, Create and MINT on Poly/BSC</h4>
+                                    <h4>Create and Sell NFTs on Polygon</h4>
                                
-                                <h4>Connect Wallet First ↗️</h4>
+                                <h4>Connect First ↗️</h4>
                               
                                 <p></p>
                                 <div className="banner-btns d-flex flex-wrap justify-content-center">
-                                    <Link href="/portal" className="default-btn move-top">
-                                        <span>SELL</span>
+                                    <Link href="/portal">
+                                    <div className="default-btn move-top"><span>SELL</span> 
+                                    </div>
                                     </Link>
-                                    <Link href="/createnft" className="default-btn style-2 move-right">
-                                        <span>CREATE</span>
+                                    <Link href="/createnft">
+                                    <div className="default-btn style-2 move-right"><span>CREATE</span>
+                                    </div>
                                     </Link>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -60,6 +63,7 @@ const Banner = () => {
                             <BannerSingle data={item} key={item.id} />
                         ))
                     }
+                    
                 </div>
                 <div className="row g-3">
                     {
@@ -72,7 +76,7 @@ const Banner = () => {
         </div>
         </section>
         </div>
-    );
+    )
 }
 
 export default Banner;

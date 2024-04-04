@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-// import ABI from "../../../engine/API/NFT.json";
 import { Button } from "@nextui-org/react";
-
-import Footer from "../../../components/Footer";
-//Model??// fix
-// import AdviceCard from "../../../components/AdviceCard";
-// import { useContract, useContractWrite } from "@thirdweb-dev/react";
-
+import AdviceCard from "../../../components/AdviceCard";
 import { renderPaperCheckoutLink } from "@paperxyz/js-client-sdk";
+import Link from "next/link";
 
 const ADDRESS = "0x4C52548145a99EAcDe86561ef30Cd01c103cB579";
 const apikey = "TWRGVKG991VTZ6E5T8JAAKPMMQ7GYY1TKS";
@@ -62,9 +57,48 @@ class BearPoly extends Component {
 
     return (
       <div className="App">
-        <Button className="button-53" onClick={openCheckout}>
-          Paper
-        </Button>
+
+
+
+<div className="container" style={{ marginTop: "75px" }}>
+
+<div className="text-right mt-5">
+          <Link className="default-btn move-right" href="/collection">
+            
+              <span>🌀BACK</span>
+            
+          </Link>
+        </div> 
+
+<div style={{ padding: "20px" }}>
+          <AdviceCard />
+        </div>
+
+
+<Button className="button-53" onClick={openCheckout}>
+  MINT with CARD
+</Button>
+
+
+
+<div className="text-center mt-5">
+                    <Link className="default-btn move-right"
+                      href="https://opensea.io/collection/cryptobearsclub13"
+                      target="_blank"
+                    >
+                        <span>Sleeping BEARS @Opensea</span>
+                    </Link>
+                  </div>
+
+
+
+
+
+
+</div>
+
+
+   
 
         <div className="container">
           <div className="row">

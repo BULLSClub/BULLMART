@@ -1,22 +1,27 @@
 import Link from "next/link";
-import { useEffect, useState, React } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import ConnectChain from "../engine/connectchain";
 import { Button, Col, Row, Container } from "@nextui-org/react";
 import { ethers } from "ethers";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
 import Profil from "../engine/Profil";
 import { FaUserAlt, FaRegImage, FaUserEdit } from "react-icons/fa";
-import Image from "next/image";
-import HomeRadio from "./Radio";
+import AuthorCard from "./common/AuthorCard";
 import NFTS from "../engine/NFTS.json";
-
+import HomeRadio from "./Radio";
+import { ConnectWallet, useAddress, darkTheme } from "@thirdweb-dev/react";
+import Image from "next/image";
+import ConnectChain from "../engine/connectchain";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [wallet, setWallet] = useState("");
-  console.log("NFT", NFTS);
 
+  // const key = "owner";
+  // const owner = [...new Map(NFTS.map((item) => [item[key], item])).values()];
+  console.log("NFT", NFTS);
 
   async function connectUser() {
     const web3Modal = new Web3Modal();
@@ -31,6 +36,7 @@ const Header = () => {
     }
     getUser(account);
   }
+
   useEffect(() => {
     if (typeof document !== undefined) {
       require("bootstrap/dist/js/bootstrap");
@@ -66,31 +72,45 @@ const Header = () => {
       require("bootstrap/dist/js/bootstrap");
     }
   }, []);
-  
   const router = useRouter();
+
   return (
     <div className="test">
       <header className="header">
         <div className="container-fluid">
           <div className="header__content">
             <div className="header__logo">
-              <Link href="http://bullsclub.space/">
+            <a href="http://bullsclub.space/" target="blank">
                 <Image
                   src="/assets/images/logo/logo.png"
                   width={170}
-                  height={170}
+                  height={90}
                   alt="logo"
                 ></Image>
-              </Link>
+              </a>
             </div>
             <form action="#" className="header__search">
               <HomeRadio />
               BULLFM
             </form>
+           
+            <div className="header__logo">
+            <a href="https://polygon.technology/" target="blank">
+                <Image
+                  src="/polygonwhite.png"
+                  width={130}
+                  height={40}
+                  alt="logo"
+                ></Image>
+              </a>
+            </div>
+
             <div className="header__menu ms-auto">
               <ul className="header__nav mb-0">
                 <li className="header__nav-item">
-                  <Link href="/">HOME</Link>
+                  <Link className={router.pathname == "/"} href="/">
+                    HOME
+                  </Link>
                   <ul className="dropdown-menu header__nav-menu"></ul>
                 </li>
                 <li className="header__nav-item">
@@ -105,50 +125,51 @@ const Header = () => {
                   >
                     NFTs
                   </a>
+
                   <ul className="dropdown-menu header__nav-menu">
                     <li>
-                      <Link href="/createnft"> {" "}
-                        <span className="me-1">
+                      <Link href="/createnft">
+                        
+                           <span className="me-1">
                           <i className="icofont-fix-tools"></i>
                         </span>
-                        Create NFT
+                          Create NFT
+                       
                       </Link>
                     </li>
                     <li>
-                      <Link href="/portal"><span className="me-1">
-                          <i className="icofont-coins"></i>
-                        </span>
-                        Sell NFT
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/explore"> {" "}
+                    <Link href="/portal">
                         <span className="me-1">
-                          <i className="icofont-prestashop"></i>
-                        </span>{" "}
-                        Market
+                        <i className="icofont-coins"></i>
+                      </span>
+                          Sell NFT
+                        
                       </Link>
                     </li>
                     <li>
-                      <Link href="/collection"> {" "}
+                      <Link href="/explore">
                         <span className="me-1">
-                          <i className="icofont-files-stack"></i>
-                        </span>
+                        <i className="icofont-prestashop"></i>
+                      </span>{" "}
+                          Market
+                       
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link href="/collection">
+                       <span className="me-1">
+                        <i className="icofont-files-stack"></i>
+                      </span>
                         Collections
+                       
                       </Link>
                     </li>
                    
-                    <li>
-                      <Link href="/allauthors">  {" "}
-                        <span className="me-1">
-                          <i className="icofont-users"></i>
-                        </span>
-                        Collectors
-                      </Link>
-                    </li>
                   </ul>
                 </li>
                
+
                 <li className="header__nav-item">
                   <a
                     className="header__nav-link"
@@ -163,60 +184,65 @@ const Header = () => {
                       <path d="M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z" />
                     </svg>
                   </a>
+
                   <ul className="dropdown-menu header__nav-menu">
-                    
-                  <li>
-                      <Link
+                    <li>
+                    <a
                         href="https://bullzar.bullsclub.space"
                         target="blank"
                       >
-                        {" "}
-                        <span className="me-1">
+                        <a
+                          className={
+                            router.pathname == ""
+                              ? "drop-down-item active"
+                              : "drop-down-item"
+                          }
+                        >
+                         <span className="me-1">
                           <i className="icofont-megaphone-alt"></i>
                         </span>
                         BULLZAR
-                      </Link>
+                        </a>
+                      </a>
                     </li>
-
                     <li>
-                      <Link
+                    <a
                         href="https://bullswap.bullsclub.space"
                         target="blank"
                       >
-                        {" "}
-                        <span className="me-1">
+                        <a
+                          className={
+                            router.pathname == ""
+                              ? "drop-down-item active"
+                              : "drop-down-item"
+                          }
+                        >
+                         <span className="me-1">
                           <i className="icofont-money-bag"></i>
                         </span>
                         BULL TOKEN
-                      </Link>
+                        </a>
+                      </a>
                     </li>
                     <li>
-                      <Link href="https://bullsclub.space" target="blank">
-                        {" "}
-                        <span className="me-1">
+                      <a href="https://bullsclub.space" target="blank">
+                        <a><span className="me-1">
                           <i className="icofont-bull"></i>
                         </span>
-                        BULLSCLUB
-                      </Link>
+                        BULLSCLUB</a>
+                      </a>
                     </li>
-                    <Link href="mailto:support@bullsclub.space" target="blank">
-                      {" "}
-                      <span className="me-1">
-                        <i className="icofont-support-faq"></i>
-                      </span>{" "}
-                      Support
-                    </Link>
                   </ul>
                 </li>
               </ul>
             </div>
+
             <div className="header__actions">
               <div className="header__action header__action--search">
                 <button className="header__action-btn" type="button">
                   <i className="icofont-search-1"></i>
                 </button>
               </div>
-              
               <div className="header__action header__action--profile">
                 <div className="dropdown">
                   <a
@@ -233,30 +259,47 @@ const Header = () => {
                     <span className="d-none d-md-inline"></span>
                   </a>
                   <ul className="dropdown-menu">
+
+
+
+
                     <li>
                       <Profil wallet={wallet} />
                     </li>
-                   
-                    
+
+
+
+
+                    <li>
+                    </li>
                   </ul>
                 </div>
+
+                <ConnectChain />
               </div>
               <div className="wallet-btn">
                 <Link href="/wallet">
-                  <span>
-                    <i className="icofont-wallet" data-blast="color"></i>
-                  </span>
-                  <span className="d-none d-md-inline">
-                    {wallet != ""
-                      ? wallet.slice(0, 4) + "...." + wallet.slice(-2)
-                      : "🐻"}
-                  </span>
+                  
+                    <span>
+                      <i className="icofont-wallet" data-blast="color"></i>
+                    </span>
+                    <span className="d-none d-md-inline">
+                      {wallet != ""
+                        ? wallet.slice(0, 4) + "...." + wallet.slice(-2)
+                        : "🐻"}
+                    </span>
+                 
                 </Link>
               </div>
             </div>
-            <div>
-              <button className="menu-trigger header__btn" id="menu05">
-                <div
+
+
+
+
+
+
+            <button className="menu-trigger header__btn" id="menu05">
+            <div
                   className="btn btn-secondary dropdown-toggle"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -292,8 +335,7 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </header>

@@ -4,6 +4,7 @@ import { Col, Dropdown } from '@nextui-org/react';
 import React from 'react';
 import { useEffect } from 'react';
 
+
 export default function ConnectChain() {
     const [selected, setSelected] = React.useState(new Set(["Set Network"]));
     const selectedValue = React.useMemo(
@@ -85,7 +86,8 @@ export default function ConnectChain() {
               selectedKeys={selected}
               onSelectionChange={setSelected}
               textValue={selected}
-            >     
+            >    
+             
               <Dropdown.Item textValue="Polygon" key="Polygon">
                 <img src="polygonwhite.png" width={"90px"} />
               </Dropdown.Item>

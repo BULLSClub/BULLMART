@@ -40,8 +40,8 @@ const Collection = ({item}) => {
                         </div>
                         
                         <div className="meta-info"></div>
-              <Link href={`${item.link}`} className="default-btn move-side small-btn">
-                  <span>Check Pass</span>
+              <Link href={`${item.idd}`} target='blank' className="default-btn move-side small-btn">
+                  <span>MINT</span>
               </Link>
               <spacer></spacer>
               

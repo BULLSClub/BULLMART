@@ -32,10 +32,15 @@ const CollectionSingle = ({item}) => {
                             <p>Collection has {`${item.items}`} items</p>
                         </div>
                         <div className="meta-info"></div>
-              <Link href={`${item.link}`} className="default-btn move-right small-btn">
+              <Link href={`${item.link}`} className="default-btn move-top small-btn">
                   <span>Check Collection</span>
               </Link>
               <spacer></spacer>
+              <Link href={`${item.idd}`} target='blank' className="default-btn move-right small-btn">
+                  <span>MINT</span>
+              </Link>
+
+              
               <div>
               <a href={`${item.idd}`} target='blank'>
                 <a className="default-btn move-right small-btn">

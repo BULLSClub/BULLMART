@@ -1,21 +1,15 @@
 import React, { Component } from "react";
-// import ABI from "../../../";
-
 import { Button } from "@nextui-org/react";
-import Footer from "../../../components/Footer";
-
-//Model??// fix
-// import AdviceCard from "../../../components/AdviceCard";
-
-// import { useContract, useContractWrite } from "@thirdweb-dev/react";
+import AdviceCard from "../../../components/AdviceCard";
+import Link from "next/link";
 
 import { renderPaperCheckoutLink } from "@paperxyz/js-client-sdk";
+
 
 const ADDRESS = "0xFc6D74b6c444b00f39544152553b306C24542d94";
 const apikey = "TWRGVKG991VTZ6E5T8JAAKPMMQ7GYY1TKS";
 const endpoint = "https://api.polygonscan.com/api/";
-const nftpng =
-  "https://dweb.link/ipfs/QmPeUUVv6VYtXcJiaffkD9S8V7xDmwzWaqJHwdEi4jUVuy/";
+const nftpng ="https://dweb.link/ipfs/QmPeUUVv6VYtXcJiaffkD9S8V7xDmwzWaqJHwdEi4jUVuy/";
 
 class CowPoly extends Component {
   constructor() {
@@ -63,10 +57,44 @@ class CowPoly extends Component {
 
     return (
       <div className="App">
-        <Button className="button-53" onClick={openCheckout}>
-          Cow
-        </Button>
 
+
+
+
+        <div className="container" style={{ marginTop: "75px" }}>
+        <div className="text-right mt-5">
+          <Link className="default-btn move-right" href="/collection">
+            
+              <span>🌀BACK</span>
+            
+          </Link>
+        </div> 
+        
+
+        <div style={{ padding: "20px" }}>
+                  <AdviceCard />
+                </div>
+       
+       
+        <Button className="button-53" onClick={openCheckout}>
+          MINT COW WITH CARD
+        </Button>
+       
+
+        <div className="text-center mt-5">
+                    <Link className="default-btn move-right"
+                      href="https://opensea.io/collection/cryptocowsclub07"
+                      target="_blank"
+                    >
+                        <span>Chilling COWS @Opensea</span>
+                    </Link>
+                  </div>
+
+
+
+
+
+        </div>
         <div className="container">
           <div className="row">
             <div className="row items mt-3">

@@ -31,7 +31,7 @@ const QRCodeModal = ({ isOpen, onRequestClose, qrDataURL, text }) => {
           </div>
         )}
         <div className="overlay-container">
-          <img src="logo.png" alt="Overlay" className="overlay-image" />
+          
         </div>
         <div className="button-group">
           <a href={qrDataURL} download="qrcode.png">

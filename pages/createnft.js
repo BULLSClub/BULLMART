@@ -1,27 +1,25 @@
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import {
-  DefaultNFTPolygon,
+  DefaultNFTPolygon, DefaultNFTBSC,
   polygonRpc,
   bsctrpc
 } from "../engine/configuration";
+
 import NFTcreate from "../engine/NFTcreate";
 import Web3 from "web3";
-// import Image from "next/image";
+import Image from "next/image";
 import { useRouter } from "next/router";
-import Link from "next/link";
-
 
 const { ethers, Wallet } = require("ethers");
 const axios = require("axios");
 
+
 const JWT = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiIxNTEyMDQ4ZS0xOWFlLTQ4ZmYtOGFiOS0xZGQxNDljMGRiMjQiLCJlbWFpbCI6ImNvbnRhY3QuZWxlYXJuaW5nMjAyMEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiMWQ0YjNhN2FjMDBiZWYwMDU5ZmMiLCJzY29wZWRLZXlTZWNyZXQiOiIzMzdlMTM5OTUwMjUwYjBmOWM1OGIzOTJkYTkxZjUzM2U1NWViZmNmNDQ3ZThiMWFkMDFiOTg5MTRkYWQ5ZTljIiwiaWF0IjoxNjc1MTY1MTUwfQ.Of1UvNC2NF3oBh0Qkr7aA7rVNJCl6oN6W08TeOYmEVI`;
 export const createToken = async (baseURI) => {
   //error handling
-  
   var mm = "0x13881";
   var bsct = "0x61";
-
   const connected = await detectEthereumProvider();
   let provider;
   let web3;
@@ -29,40 +27,26 @@ export const createToken = async (baseURI) => {
     provider = new ethers.providers.JsonRpcProvider(bsctrpc);
     web3 = new Web3(new Web3.providers.HttpProvider(bsctrpc));
   }
-
   provider = new ethers.providers.JsonRpcProvider(polygonRpc);
   web3 = new Web3(new Web3.providers.HttpProvider(polygonRpc));
-
   const gasPrice = await provider.getFeeData();
-
   const nftContract = await new web3.eth.Contract(NFTcreate, DefaultNFTPolygon);
-  const val = (parseFloat(0.0175) * 1e18).toString(16);
+  const val = (parseFloat(0.0175)* 1e18).toString(16);
 
   console.log(baseURI);
   const transactionParameters = {
-    to: DefaultNFTPolygon, // Required except during contract publications.
-    from: window.ethereum.selectedAddress, // must match user's active address.
-    //gasLimit: web3.utils.toHex(web3.utils.toWei('50','gwei')),
-    //gasPrice: web3.utils.toHex(web3.utils.toWei('60','gwei')),
-    // maxPriorityFeePerGas: web3.utils.toHex(
-    //   Number(gasPrice.maxPriorityFeePerGas) * 25
-    // ),
-    // maxFeePerGas: null,
-    gas: ethers.BigNumber.from(500000).toHexString(),
-    data: nftContract.methods.createToken(baseURI).encodeABI(), //make call to NFT smart contract
-    value: val
-    // 'data': nftContract.methods.transferFrom(amount).encodeABI()
-    //make call to NFT smart contract
-    //Web3.utils.toBN(Web3.utils.toWei(val, "ether")).toString(16)
+    to: DefaultNFTPolygon, 
+    from: window.ethereum.selectedAddress, 
+    gas: ethers.BigNumber.from(630000).toHexString(),
+    data: nftContract.methods.createToken(baseURI).encodeABI(), 
+    value:val
   };
   console.log(transactionParameters);
-  //sign transaction via Metamask
   try {
     const txHash = await window?.ethereum?.request({
       method: "eth_sendTransaction",
       params: [transactionParameters]
     });
-    // console.log(txHash);
     window.crypto_cb = function () {
       console.log(txHash);
       return txHash;
@@ -70,8 +54,8 @@ export const createToken = async (baseURI) => {
     return {
       success: true,
       status:
-        "✅ Check out your transaction on Etherscan: https://polygonscan.com/tx/" +
-        txHash
+      "✅ Check out your transaction on Etherscan: https://polygonscan.com/tx/" +
+      txHash
     };
   } catch (error) {
     return {
@@ -88,13 +72,13 @@ const CreateNft = () => {
   const [descriptionNFT, setdescriptionNFT] = useState("");
 
 
-  // useEffect(() => {
-  //   if (window?.ethereum?.selectedAddress) {
-  //     console.log("new", window.ethereum.selectedAddress);
-  //   } else {
-  //     router.push("/Wallet");
-  //   }
-  // }, []);
+   useEffect(() => {
+    if (window?.ethereum?.selectedAddress) {
+     console.log(window.ethereum.selectedAddress);
+    } else {
+      router.push("/wallet");
+     }
+   }, []);
 
 
   const changeHandler = (event) => {
@@ -104,10 +88,12 @@ const CreateNft = () => {
     if (selectedFile && selectedFile.size <= 150 * 1024 * 1024) {
       const formData = new FormData();
       formData.append("file", selectedFile);
+
       const metadata = JSON.stringify({
         name: "File name"
       });
       formData.append("pinataMetadata", metadata);
+
       const options = JSON.stringify({
         cidVersion: 0
       });
@@ -140,6 +126,7 @@ const CreateNft = () => {
           },
           data: metadataNFT
         };
+
         const result = await axios(config);
         console.log(result);
         await createToken("ipfs://" + result.data.IpfsHash);
@@ -162,12 +149,11 @@ const CreateNft = () => {
               <div className="col-lg-8">
                 <div className="create-nft py-5 px-4">
                   <div className="create-nft-form">
-                    <h3>CONNECT to POLYGON</h3>
-                    <h5>Upload 3D items, Music, Video or Art and more</h5>
+                   
+                    <h2>MINT NFT</h2>
+                   
                     <div className="upload-item mb-30">
-                      <p>
-                        PNG,JPG,JPEG,SVG,WEBP,HTML, (Max-150mb)
-                      </p>
+                      <p>PNG,JPG,JPEG,SVG,WEBP  (Max-150mb)</p>
                       <div className="custom-upload">
                         <div className="file-btn">
                           <i className="icofont-upload-alt"></i>
@@ -176,15 +162,18 @@ const CreateNft = () => {
                         <input type="file" onChange={changeHandler} />
                       </div>
                       <div>
-                        {selectedFile && (
-                          <img
-                            src={URL.createObjectURL(selectedFile)}
-                            className=""
-                            alt="image"
-                          />
-                        )}
-                      </div>
+                      {selectedFile && (
+                        <Image
+                          src={URL.createObjectURL(selectedFile)}
+                          width={500}
+                          height={500}
+                          className=""
+                          alt="image"
+                        />
+                      )}
                     </div>
+                    </div>
+                   
                     <div className="form-floating item-name-field mb-3">
                       <input
                         type="text"
@@ -207,27 +196,13 @@ const CreateNft = () => {
                       <label>Item Description</label>
                     </div>
                     <div className="item-category-field mb-30">
-                      <h4>Upload for Catergories</h4>
+                    <h4>Upload for Catergories</h4>
                       <ul className="item-cat-list d-flex flex-wrap">
                         <li className="item-cat-btn active">
                           <span>
-                            <i className="icofont-paint-brush"></i>
+                            <i className="icofont-vector-path"></i>
                           </span>
                           Art
-                        </li>
-                      
-                        <li className="item-cat-btn">
-                          <span>
-                            <i className="icofont-ticket"></i>
-                          </span>
-                          Ticket
-                        </li>
-
-                        <li className="item-cat-btn">
-                          <span>
-                            <i className="icofont-web"></i>
-                          </span>
-                          Domain
                         </li>
                         <li className="item-cat-btn">
                           <span>
@@ -237,13 +212,13 @@ const CreateNft = () => {
                         </li>
                         <li className="item-cat-btn">
                           <span>
-                            <i className="icofont-file-pdf"></i>
+                            <i className="icofont-music-disk"></i>
                           </span>
-                          Article
+                          Domain
                         </li>
                         <li className="item-cat-btn">
                           <span>
-                            <i className="icofont-abacus-alt"></i>
+                            <i className="icofont-twitter"></i>
                           </span>
                           Multiverse
                         </li>
@@ -255,42 +230,20 @@ const CreateNft = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="item-price-field mb-5">
-                      <div className="row g-3 justify-content-center">                      
-                        <div className="col-md-6 col-lg-4">
-                          <div className="form-floating">
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="sizeInput"
-                              placeholder="150"
-                            />
-                            <label>Size</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                   
                     <h6>
-                      By Creating an Item, Your NFT will Mint on the Polygon
-                      Blockchain where it will live for ever. "Minting Fee
-                      0.0175 Matic, plus network fee"{" "}
+                    "Minting Fee  0.0175 Matic, plus network fee"{" "}
                     </h6>
-                    <h6>
-                      The information added above for the metadata creation.
-                    </h6>
-                    <h6>
-                      List your Newely Minted NFT for Sale from your Profile, Or
-                      from your W3B Wallet at any 3rd party Marketplace
-                    </h6>
-                    <h6></h6>
                     <div
                       className="submit-btn-field text-center"
-                      onClick={() => handleSubmission()}
-                    >
-                      <button>Create Item</button>
+                      onClick={() => handleSubmission()} >
+                      <button>MINT Item</button>
                     </div>
                   </div>
-                  <div className="text-center mt-5">
+                </div>
+
+
+                <div className="text-center mt-5">
                     <a
                       href="https://opensea.io/collection/clubsnfts-2"
                       target="_blank"
@@ -300,7 +253,8 @@ const CreateNft = () => {
                       </a>
                     </a>
                   </div>
-                </div>
+
+                  
               </div>
             </div>
           </div>

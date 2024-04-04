@@ -6,7 +6,7 @@ const AuthorCard = ({item}) => {
             <div className="nft-item style-2">
                 <div className="nft-inner">
                     <div className="nft-thumb">
-                        <img loading="lazy" src={`${item.thumbnail}`} alt="nft-img" />
+                        <img loading="lazy" src={`${item.thumbnail}`} alt="   " />
                     </div>
                     <div className="nft-content">
                         <div className="author-thumb">

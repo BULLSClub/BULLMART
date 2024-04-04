@@ -6,7 +6,16 @@ import "../styles/globals.css";
 import { useSSR } from "@nextui-org/react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {
+  ThirdwebProvider,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+  localWallet,
+  trustWallet,
+} from "@thirdweb-dev/react";
 
+const activeChain = "polygon"
 
 function MyApp({ Component, pageProps }) {
   const { isBrowser } = useSSR();
@@ -26,9 +35,20 @@ function MyApp({ Component, pageProps }) {
             size="35%"
           />
         </Head>
+        <ThirdwebProvider
+    activeChain={activeChain}
+    clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID} 
+    supportedWallets={[
+      metamaskWallet({ recommended: true }),
+      coinbaseWallet(),
+      walletConnect(),
+      localWallet(),
+      trustWallet(),   
+    ]} >
               <Header></Header>
               <Component {...pageProps} />
               <Footer></Footer>
+              </ThirdwebProvider>
       </div>
     )
   );

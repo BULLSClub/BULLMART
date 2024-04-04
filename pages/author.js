@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import Router from "next/router";
 import { useRouter } from "next/router";
 // import Products from '../data/Product/Products.json';
-import CollectionSingle from "../../components/common/CollectionSingal";
+import CollectionSingle from "../components/common/CollectionSingal";
 import copy from "copy-to-clipboard";
-import ProductSingle from "../../components/common/Products/ProductSingle2";
-import User from "../../data/User/Users.json";
-import BullscMarket from "../../engine/BullscMarket.json";
-import NFT from "../../engine/NFT.json";
-import NFTS from "../../engine/NFTS.json";
-import { supabase } from "../../engine/Supabase";
-import ActivitySingle from "../../components/common/ActivitySingle";
-import PopularList from "../../data/Collection/Popular.json";
+import ProductSingle from "../components/common/Products/ProductSingle2";
+import User from "../data/User/Users.json";
+import BullscMarket from "../engine/BullscMarket.json";
+import NFT from "../engine/NFT.json";
+import NFTS from "../engine/NFTS.json";
+import { supabase } from "../engine/Supabase";
+import ActivitySingle from "../components/common/ActivitySingle";
+import PopularList from "../data/Collection/Popular.json";
 import Link from "next/link";
 
 

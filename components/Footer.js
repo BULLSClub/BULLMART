@@ -9,7 +9,7 @@ const Footer = () => {
       <footer className="footer-section">
         <div
           className="footer-top"
-          style={{ backgroundImage: "url('assets/images/footer/bg.jpg')" }}
+         
         >
           <div className="footer-newsletter">
             <div className="container">
@@ -69,6 +69,80 @@ const Footer = () => {
           <div className="footer-links padding-top padding-bottom">
             <div className="container">
               <div className="row g-5">
+               
+                <div className="col-lg-3 col-md-6">
+                  <div className="footer-link-item">
+                  <h5>BULLMART</h5>
+                    <ul className="footer-link-list">
+                      <li>
+                        <Link href="/portal" className="footer-link">
+                          Sell
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/explore" className="footer-link">
+                          Market
+                        </Link>
+                      </li>
+                      <li>
+                        
+                        <Link
+                          href="mailto:support@bullsclub.space"
+                          target="blank"
+                          className="footer-link"
+                        >
+                         
+                          Support
+                        </Link>
+                      </li>
+                     
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6">
+                  <div className="footer-link-item">
+                  <h4>Comunity</h4>
+                    <ul className="footer-link-list">
+                      <li>
+                        <Link
+                          href="https://bullsclub.space/blog-2/"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/collection"
+                          className="footer-link"
+                        >
+                          Collections
+                        </Link>
+                      </li>
+                      <li>
+                        
+                        <Link
+                          href="https://bullzar.bullsclub.space/"
+                          target="blank"
+                          className="footer-link"
+                        >
+                         
+                          BULLZAR
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="https://spotvirtual.com/@bullsclub-93f62e312e392bb1/@bulls-conference/@patio"
+                          target="blank"
+                          className="footer-link"
+                        >
+                          Spot
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <div className="col-lg-3 col-md-6">
                   <div className="footer-link-item">
                   <h4>Company</h4>
@@ -102,81 +176,8 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                <div className="footer-link-item">
-                    <h5>BULLMART</h5>
-                    <ul className="footer-link-list">
-                      <li>
-                        <Link href="/portal" className="footer-link">
-                          Sell
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/explore" className="footer-link">
-                          Market
-                        </Link>
-                      </li>
-                      <li>
-                        {" "}
-                        <a
-                          href="mailto:support@bullsclub.space"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          {" "}
-                          Support{" "}
-                        </a>{" "}
-                      </li>
-                     
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6">
-                <div className="footer-link-item">
-                    <h4>Comunity</h4>
-                    <ul className="footer-link-list">
-                      <li>
-                        <a
-                          href="https://bullsclub.space/blog-2/"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          Blog
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/collection"
-                          className="footer-link"
-                        >
-                          Collections
-                        </a>
-                      </li>
-                      <li>
-                        {" "}
-                        <a
-                          href="https://bullzar.bullsclub.space/"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          {" "}
-                          BULLZAR{" "}
-                        </a>{" "}
-                      </li>
-                      <li>
-                        <a
-                          href="https://spotvirtual.com/@bullsclub-93f62e312e392bb1/@bulls-conference/@patio"
-                          target="blank"
-                          className="footer-link"
-                        >
-                          Spot
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6">
                   <div className="footer-link-item">
-                    <h4>MEMBERS</h4>
+                  <h4>MEMBERS</h4>
                     <ul className="footer-link-list">
                       
                       <li>
@@ -198,7 +199,8 @@ const Footer = () => {
                      
                       <li>
                         <a
-                          href="https://bullswap.bullsclub.space/"  target="blank"
+                          href="https://bullswap.bullsclub.space/"  
+                          target="_blank"
                           className="footer-link"  >
                           BULL TOKEN
                         </a>

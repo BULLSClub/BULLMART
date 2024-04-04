@@ -3,16 +3,23 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { supabase } from "../engine/Supabase";
-
+import {
+  ThirdwebProvider,
+  ConnectWallet,
+  metamaskWallet,
+  coinbaseWallet,
+  walletConnect,
+  localWallet,
+  trustWallet,
+  rainbowWallet,
+} from "@thirdweb-dev/react";
 import Web3 from "web3";
-
-
 
 
 const insertUserWallet = async (wallet) => {
   const { data, error } = await supabase.from("User").upsert(
     {
-      wallet: wallet
+      wallet: wallet,
     },
     { onConflict: "wallet" }
   );
@@ -22,17 +29,23 @@ const insertUserWallet = async (wallet) => {
 
 const Wallet = () => {
   const router = useRouter();
+  const handleSignInSuccess = () => {
+    router.push("/"); 
+  };
   const [web3, setWeb3] = useState(null);
   const [userWalletAddress, setUserWalletAddress] = useState("");
+
+
   const connectMetamask = async () => {
     if (window.ethereum) {
       console.log(window.ethereum);
+
       const addressArray = await window.ethereum.request({
-        method: "eth_requestAccounts"
+        method: "eth_requestAccounts",
       });
       const obj = {
         status: "Write a message in the text-field above.",
-        address: addressArray[0]
+        address: addressArray[0],
       };
       localStorage.setItem("data", JSON.stringify(obj));
       await insertUserWallet(addressArray[0]);
@@ -52,13 +65,13 @@ const Wallet = () => {
               </a>
             </p>
           </span>
-        )
+        ),
       };
     }
   };
   useEffect(() => {
     if (window.ethereum && window.ethereum?.selectedAddress) {
-      router.push("/");
+      // router.push("/");
     }
   }, []);
   return (
@@ -66,11 +79,10 @@ const Wallet = () => {
       <div className="container">
         <div className="wallet-inner">
           <div className="wallet-title text-center">
-            <h3 className="mb-3">Connect your crypto wallet</h3>
-            <p className="m-auto mb-5">
-              Connect with METAMASK
-            </p>
+            <h3 className="mb-3">Connect with Metamask</h3>
+            
           </div>
+
           <ul
             className="nav justify-content-center nav-pills wallet-tab-list"
             id="pills-tab"
@@ -90,7 +102,10 @@ const Wallet = () => {
                 <span>Metamask</span>
               </div>
             </li>
+
+          
           </ul>
+
           <div className="tab-content" id="pills-tabContent">
             <div
               className="tab-pane fade show active"
@@ -106,8 +121,9 @@ const Wallet = () => {
                   />
                 </div>
                 <div className="wallet-desc">
+                  <h5>Connect Your MetaMask Wallet</h5>
                   <div
-                    className="default-btn  wallet-tab-1 small-btn move-right"
+                    className="default-btn small-btn move-right"
                     onClick={async () => {
                       await connectMetamask();
                     }}
@@ -128,6 +144,8 @@ const Wallet = () => {
                 </div>
               </div>
             </div>
+
+           
           </div>
         </div>
       </div>

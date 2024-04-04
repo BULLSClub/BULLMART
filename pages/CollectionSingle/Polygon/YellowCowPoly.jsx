@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-// import ABI from "../../../engine/API/NFT.json";
 import Footer from "../../../components/Footer";
-//Model??// fix
-// import AdviceCard from "../../../components/AdviceCard";
-// import { useContract, useContractWrite } from "@thirdweb-dev/react";
 import { Button } from "@nextui-org/react";
-
+import AdviceCard from "../../../components/AdviceCard";
+import Link from "next/link";
 import { renderPaperCheckoutLink } from "@paperxyz/js-client-sdk";
 
 const ADDRESS = "0x899310114B573E768747ea866c0edC51F39C15Cb";
@@ -61,10 +58,33 @@ class YellowPoly extends Component {
 
     return (
       <div className="App">
-        <Button className="button-53" onClick={openCheckout}>
-          Yellowcow
-        </Button>
+<div className="container" style={{ marginTop: "75px" }}>
+<div className="text-right mt-5">
+          <Link className="default-btn move-right" href="/collection">
+            
+              <span>🌀BACK</span>
+            
+          </Link>
+        </div> 
+<div style={{ padding: "20px" }}>
+          <AdviceCard />
+        </div>
+<Button className="button-53" onClick={openCheckout}>
+  MINT with CARD
+</Button>
 
+
+<div className="text-center mt-5">
+                    <Link className="default-btn move-right"
+                      href="https://opensea.io/collection/yellow-cows-club-v2"
+                      target="_blank"
+                    >
+                        <span>Royalty COWS @Opensea</span>
+                    </Link>
+                  </div>
+
+
+</div>
         <div className="container">
           <div className="row">
             <div className="row items mt-3">
