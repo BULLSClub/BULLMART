@@ -14,20 +14,16 @@ import Web3 from 'web3';
 import detectEthereumProvider from '@metamask/detect-provider';
 import { mmnft, mmresell, mmnftcol, mmrpc } from '../engine/configuration';
 import { goenft, goeresell, goenftcol, goerpc } from '../engine/configuration';
-import { hhnft, hhresell, hhnftcol, hhrpc,cryptoBearNFT,CryptoCowsClub07,marketplaceAddress,bsctmarket } from '../engine/configuration';
+import { hhnft, hhresell, hhnftcol, hhrpc,BearNFT,CowsNFT,marketplaceAddress,bsctmarket, YellowCowsNFT } from '../engine/configuration';
 import { bsctnft, bsctresell, bsctnftcol, bsctrpc } from '../engine/configuration';
 import { cipherEth, simpleCrypto  } from '../engine/configuration';
 import Select, { components } from "react-select";
 
 export default function Sell() {
   const options = [
-    { value: "-", label: "Choose", icon: "" },
+   
     { value: "0", label: "MATIC", icon: "matic-token-icon.webp" },
-    { value: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", label: "USDC", icon: "usdc.png" },
-    { value: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", label: "USDT", icon: "usdt.png" },
-    { value: "0x2Fa2142496B29A82899f336ebfA8481Ac1666605", label: "Messi", icon: "" },
-
-    
+   
   ];
   const { Option } = components;
 
@@ -47,6 +43,7 @@ export default function Sell() {
   const[Comp,setComp] = useState(0)
   const [loadingState, setLoadingState] = useState('not-loaded')
   const [loading, setLoading] = useState(false)
+
   const IconOption = props => (
     <Option {...props}>
       <img
@@ -62,12 +59,11 @@ export default function Sell() {
     return s.data;
 }
    const getSimpleHash = async(owner) =>{
-
     const options = {
       headers: {accept: 'application/json', 'X-API-KEY': 'bullsclub_sk_22165387-689b-4bdd-aea4-dd13179bfa51_2d5oq0c55iwiavd7'}
     };
     
-    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon,bsc&wallet_addresses='+owner+'&limit=50', options);
+    const rest= await axios.get('https://api.simplehash.com/api/v0/nfts/owners?chains=polygon&wallet_addresses='+owner+'&limit=50', options);
     console.log(rest.data.nfts);
     const simpleHashNFTs = rest.data.nfts.map((item) => {
       console.log(item);
@@ -97,26 +93,20 @@ export default function Sell() {
              }
             }
     ) ;
-    setProds(simpleHashNFTs);
-   }
-   const setMarketAdd = async() => {
-    
+    setProds(simpleHashNFTs);}
+   const setMarketAdd = async() => { 
       var bsct = "0x38";
       var poly = "0x89";
-      const connected = await detectEthereumProvider();
-    
+      const connected = await detectEthereumProvider(); 
       if (connected.chainId == bsct) {
         setMarketplaceadd(bsctmarket);
       }
       if(connected.chainId == poly)
       {
         setMarketplaceadd(marketplaceAddress); 
-
       }
    }
     useEffect(() => {
-
-
       getChain();
       setMarketAdd();
       setRpc();
@@ -125,7 +115,6 @@ export default function Sell() {
       {
         setOwnerAddr(window.ethereum.selectedAddress);
         getSimpleHash(window.ethereum.selectedAddress);
-
         console.log(window.ethereum.selectedAddress)
       }
       else
@@ -257,7 +246,7 @@ export default function Sell() {
       }
       if(connected.chainId == polyChain)
       {
-        var nft = [cryptoBearNFT,CryptoCowsClub07];
+        var nft = [BearNFT ,CowsNFT, YellowCowsNFT];
       }
       getNftCustom(nft);
       console.log(nft)
@@ -586,43 +575,34 @@ const nftContract = await new web3.eth.Contract(NFT, address);
 
       if (loadingState  && !prod.length) 
       return (
+        <div className='container'>
         <Container >
       <Row >
         <Col>
       <Text h3>No NFTs Found, Connect Wallet</Text>
-      <Button
-          size="sm"
-          color="gradient"
-          onPress={refreshNFTs}
-          style={{ fontSize: "20px" }}
-        >
-          Refresh
-        </Button>
+     
       </Col>
       </Row>
       <Spacer></Spacer>
       </Container>
+      </div>
 )
 if (loading   && prod.length) 
 return (
-    <div>
+    <div className='container'>
     <Container md>
     <Row>
         <Col css={{ size: "$50", paddingLeft: "$10", paddingTop: "$4" }}>
           <Card css={{ p: "$9", backgroundColor: "$blue200" }}>
           <Row>
           <Text h4 css={{marginRight:'$3'}}>
-              Switch Blockchain
+              Blockchain
             </Text>
           <Button size="sm" onPress={polyTest} css={{ marginRight: "$2" }}>
                 <img src="polygonwhite.png" width={"100px"} />
               </Button>
-              <Button size="sm" onPress={bscTest} css={{ marginRight: "$2" }}>
-                <img src="bsc.png" width={"100px"} />
-              </Button>
-              <Button size="sm" onPress={ethTest}>
-                <img src="ethereumlogo.png" width={"100px"} />
-              </Button>
+              
+             
               </Row>
               <Card css={{ p: "$4", marginTop:'$3'}}>
             <Text h3>
@@ -631,7 +611,6 @@ return (
                 {user}
               </Text>
             </Text>
-            <Text h6>Selected Chain: {chain}</Text>
             <Row>
             <Button
                 size="sm"
@@ -641,19 +620,18 @@ return (
               >
                Connect
               </Button>
-              <Button
-                size="sm"
-                color="gradient"
-                onPress={refreshNFTs}
-                style={{ fontSize: "20px" }}
-              >
-                Refresh
-              </Button>
+
             </Row>
+
+            <h6>-Approve NFT to Sell</h6>
+            <h6>-Add Price and choose MATIC</h6>
+            <h6>-List for sale</h6>
+                <p>-Listing Fee 0.025 MATIC</p>
             </Card>
           </Card>
         </Col>
       </Row>
+      <h3> Last 50 OWNED NFTs</h3>
       <Row>
         <Grid.Container gap={3}>
           {prod.map((nft, i) => {
@@ -664,23 +642,38 @@ return (
                     <Card
                       isHoverable
                       key={i}
-                      css={{ mw: "200px", marginRight: "$1" }}
+                      css={{ mw: "220px", marginRight: "$1" }}
                       variant="bordered"
                     >
+
+
+
+
                       <Card.Image src={nft.image} />
+                     
                       <Card.Body  key={i}>
-                        <h3
-                          style={{
-                            color: "#9D00FF",
-                            fontFamily: "SF Pro Display",
-                          }}
-                        >
-                          Owned by You
-                        </h3>
+                       
+
+
+
+
+
                         <Text h5>
                           {nft.name} Token-{nft.id}
                         </Text>
-                        <Text>{nft.desc}</Text>
+                       
+                        <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "15px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
+                        >
+                          Approve to sell
+                        </Button>
+
+
+
+
                         <Input
                           size="sm"
                           css={{
@@ -690,12 +683,12 @@ return (
                             border: "$blue500",
                           }}
                           style={{
-                            color: "white",
+                            color: "black",
                             fontFamily: "SF Pro Display",
                             fontWeight: "bolder",
                             fontSize: "15px",
                           }}
-                          placeholder="Set your price"
+                          placeholder="Set Price"
                           value={resalePrice[i]}
                           onChange={(e) => {
                             let s = resalePrice
@@ -705,6 +698,20 @@ return (
                           }
                           }
                         />
+                         <Button
+                          size="sm"
+                          color="gradient"
+                          style={{ fontSize: "20px" }}
+                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
+                        >
+
+                          list for Sale
+                        </Button>
+
+
+
+
+
                          <Select
                          styles={{zIndex:10000}}
         defaultValue={options[0]}
@@ -718,23 +725,8 @@ return (
         }
       />
       
-      <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),Approve(nft.address,nft.id)}}
-                        >
-                          Approve
-                        </Button>
-                        <Button
-                          size="sm"
-                          color="gradient"
-                          style={{ fontSize: "20px" }}
-                          onClick = {()=>{console.log(resalePrice[i]),SellNFT(nft.address,nft.id,resalePrice[i],resaleToken[i])}}
-                        >
-
-                          Relist for Sale
-                        </Button>
+     
+                       
                       </Card.Body>
                     </Card>
                   </a>

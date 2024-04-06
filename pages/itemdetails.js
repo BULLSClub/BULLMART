@@ -203,30 +203,8 @@ const ItemDetails = () => {
                           >
                             Details
                           </button>
-                          <button
-                            className="nav-link"
-                            id="nav-bids-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#nav-bids"
-                            type="button"
-                            role="tab"
-                            aria-controls="nav-bids"
-                            aria-selected="false"
-                          >
-                            Bids
-                          </button>
-                          <button
-                            className="nav-link"
-                            id="nav-history-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#nav-history"
-                            type="button"
-                            role="tab"
-                            aria-controls="nav-history"
-                            aria-selected="false"
-                          >
-                            History
-                          </button>
+                         
+                         
                         </div>
                       </nav>
                       <div className="tab-content" id="nav-tabContent">
@@ -319,24 +297,9 @@ const ItemDetails = () => {
                           aria-labelledby="nav-history-tab"
                         >
                           <ul className="item-histo-list">
-                            <li className="histo-item">
-                              <p>
-                                Created by{" "}
-                                <Link href="/author">{`${ItemInfo.createdBy}`}</Link>
-                              </p>
-                            </li>
-                            <li className="histo-item">
-                              <p>
-                                Listed by{" "}
-                                <Link href="/author">{`${ItemInfo.listedBy}`}</Link>
-                              </p>
-                            </li>
-                            <li className="histo-item">
-                              <p>
-                                Owned by{" "}
-                                <Link href="/author">{`${ItemInfo.owners[0].name}`}</Link>
-                              </p>
-                            </li>
+                          
+                           
+                           
                           </ul>
                         </div>
                       </div>

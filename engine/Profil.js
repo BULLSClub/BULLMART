@@ -57,11 +57,7 @@ export default function Profile(props) {
       <li>
         <Link
           href={"/author/" + props?.wallet}
-          className={
-            router?.pathname == "/author/"
-              ? "dropdown-item active"
-              : "dropdown-item"
-          }
+         
         >
           <span className="me-1">
             <i className="icofont-user-alt-6"></i>

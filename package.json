@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",
+    "@mui/material": "^5.15.15",
     "@nextui-org/react": "^1.0.0-beta.9",
     "@paperxyz/js-client-sdk": "^0.2.7",
     "@pinata/sdk": "^2.1.0",

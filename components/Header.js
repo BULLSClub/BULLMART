@@ -236,7 +236,6 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-
             <div className="header__actions">
               <div className="header__action header__action--search">
                 <button className="header__action-btn" type="button">
@@ -244,36 +243,31 @@ const Header = () => {
                 </button>
               </div>
               <div className="header__action header__action--profile">
-                <div className="dropdown">
-                  <a
+
+               
+                  <Link
                     className="dropdown-toggle"
-                    href="#"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    data-bs-offset="-100,10"
+                    href={"/author"}
                   >
                     <span>
                       <i className="icofont-user"></i>
                     </span>{" "}
                     <span className="d-none d-md-inline"></span>
-                  </a>
-                  <ul className="dropdown-menu">
+                  </Link>
+               
 
 
 
 
-                    <li>
-                      <Profil wallet={wallet} />
-                    </li>
+
+
+                   
 
 
 
 
-                    <li>
-                    </li>
-                  </ul>
-                </div>
+                
+             
 
                 <ConnectChain />
               </div>
