@@ -1,7 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/author": "pages/author.js",
-  "/wallet": "pages/wallet.js"
-}
+{"/_app":"pages/_app.js","/CollectionSingle/Polygon/BearPoly":"pages/CollectionSingle/Polygon/BearPoly.html","/CollectionSingle/Polygon/CowPoly":"pages/CollectionSingle/Polygon/CowPoly.html","/404":"pages/404.html","/CollectionSingle/collectionsingle":"pages/CollectionSingle/collectionsingle.html","/_error":"pages/_error.js","/FAQ/Privacy":"pages/FAQ/Privacy.html","/FAQ/helpsingle":"pages/FAQ/helpsingle.html","/author":"pages/author.html","/FAQ/Aggrement":"pages/FAQ/Aggrement.html","/collection":"pages/collection.html","/CollectionSingle/Polygon/YellowCowPoly":"pages/CollectionSingle/Polygon/YellowCowPoly.html","/explore":"pages/explore.html","/itemdetails":"pages/itemdetails.html","/FAQ/helpsingle1":"pages/FAQ/helpsingle1.html","/portal":"pages/portal.html","/FAQ/help":"pages/FAQ/help.html","/":"pages/index.html","/wallet":"pages/wallet.html","/FAQ/terms":"pages/FAQ/terms.html","/allauthors":"pages/allauthors.html","/_document":"pages/_document.js","/createnft":"pages/createnft.html"}

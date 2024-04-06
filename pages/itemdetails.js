@@ -218,7 +218,7 @@ const ItemDetails = () => {
                             <div className="author-p-thumb">
                               <Link href={"/author/" + query.seller}>
                                 <img
-                                  src="assets/images/seller/collector-3.gif"
+                                  src="assets/images/seller/collector-2.gif"
                                   alt="author-img "
                                 />
                               </Link>
